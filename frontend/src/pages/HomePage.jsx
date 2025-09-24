@@ -4,13 +4,10 @@ import PropertyCard from "../components/PropertyCard";
 import { properties } from "../data/properties";
 
 const HomePage = () => {
-  // --- State for first section ---
   const [startIndex1, setStartIndex1] = useState(0);
 
-  // --- State for second section ---
   const [startIndex2, setStartIndex2] = useState(0);
 
-  // --- Number of visible cards based on screen width ---
   const [visibleCount, setVisibleCount] = useState(1);
 
   useEffect(() => {

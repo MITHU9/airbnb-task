@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import PropertyDetails from "./pages/PropertyDetails";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
           <Route path="/property/:id" element={<PropertyDetails />} />
         </Routes>
       </div>
+      <Footer />
     </Router>
   );
 }
