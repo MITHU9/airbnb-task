@@ -20,8 +20,24 @@ import {
   Clock,
   MessageCircle,
   Grip,
+  ChevronDown,
+  ChevronUp,
 } from "lucide-react";
 import { properties } from "../data/properties";
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import L from "leaflet";
+import DatePicker from "react-datepicker";
+
+// Fix for default Leaflet marker icons
+delete L.Icon.Default.prototype._getIconUrl;
+L.Icon.Default.mergeOptions({
+  iconRetinaUrl:
+    "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon-2x.png",
+  iconUrl:
+    "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png",
+  shadowUrl:
+    "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png",
+});
 
 const PropertyDetails = () => {
   const { id } = useParams();
@@ -29,6 +45,7 @@ const PropertyDetails = () => {
   const [isLiked, setIsLiked] = useState(false);
   const [checkIn, setCheckIn] = useState("");
   const [checkOut, setCheckOut] = useState("");
+  const [open, setOpen] = useState(false);
   const [showAllAmenities, setShowAllAmenities] = useState(false);
   const [showAllReviews, setShowAllReviews] = useState(false);
 
@@ -318,50 +335,106 @@ const PropertyDetails = () => {
             <div className="border border-gray-200 rounded-xl p-6 shadow-lg">
               <div className="flex items-center justify-between mb-6">
                 <div>
-                  <span className="text-2xl font-bold">${property.price}</span>
-                  <span className="text-gray-600"> night</span>
-                </div>
-                <div className="flex items-center space-x-1">
-                  <Star size={16} className="fill-current text-black" />
-                  <span className="font-semibold">{property.rating}</span>
-                  <span className="text-gray-600">·</span>
-                  <span className="text-gray-600 underline">
-                    {property.reviewCount} reviews
-                  </span>
+                  {calculateNights() > 0 ? (
+                    <>
+                      <span className="text-xl font-bold">
+                        ${property.price}{" "}
+                      </span>
+                      <span className="text-gray-600  text-lg">
+                        for {calculateNights()} nights
+                      </span>
+                    </>
+                  ) : (
+                    <span className="text-xl font-bold">
+                      Add dates for prices
+                    </span>
+                  )}
                 </div>
               </div>
 
               {/* Booking Form */}
               <div className="space-y-0 mb-6 border border-gray-300 rounded-lg">
-                <div className="grid grid-cols-2 gap-0">
-                  <div className="p-3 border-r border-gray-300">
-                    <label className="block text-xs font-semibold text-gray-900 mb-1">
-                      CHECK-IN
-                    </label>
-                    <input
-                      type="date"
-                      value={checkIn}
-                      onChange={(e) => setCheckIn(e.target.value)}
-                      className="w-full text-sm border-none outline-none bg-transparent"
-                      placeholder="Add date"
-                    />
+                <div className="relative">
+                  {/* Inputs */}
+                  <div className="grid grid-cols-2 gap-0 border rounded-lg">
+                    {/* Check-In */}
+                    <div className="p-3 border-r border-gray-300">
+                      <label className="block text-xs font-semibold text-gray-900 mb-1">
+                        CHECK-IN
+                      </label>
+                      <input
+                        type="text"
+                        value={checkIn ? checkIn.toLocaleDateString() : ""}
+                        onFocus={() => setOpen(true)}
+                        readOnly
+                        placeholder="Add date"
+                        className="w-full text-sm border-none outline-none bg-transparent cursor-pointer"
+                      />
+                    </div>
+
+                    {/* Check-Out */}
+                    <div className="p-3">
+                      <label className="block text-xs font-semibold text-gray-900 mb-1">
+                        CHECKOUT
+                      </label>
+                      <input
+                        type="text"
+                        value={checkOut ? checkOut.toLocaleDateString() : ""}
+                        onFocus={() => setOpen(true)} // open popup when clicked
+                        readOnly
+                        placeholder="Add date"
+                        className="w-full text-sm border-none outline-none bg-transparent cursor-pointer"
+                      />
+                    </div>
                   </div>
-                  <div className="p-3">
-                    <label className="block text-xs font-semibold text-gray-900 mb-1">
-                      CHECKOUT
-                    </label>
-                    <input
-                      type="date"
-                      value={checkOut}
-                      onChange={(e) => setCheckOut(e.target.value)}
-                      className="w-full text-sm border-none outline-none bg-transparent"
-                      placeholder="Add date"
-                    />
-                  </div>
+
+                  {open && (
+                    <div className="absolute top-20 -left-50 bg-white shadow-lg rounded-xl p-4 z-50">
+                      <h3 className="text-lg font-semibold mb-2">
+                        Select dates
+                      </h3>
+                      <p className="text-sm text-gray-500 mb-4">
+                        Add your travel dates for exact pricing
+                      </p>
+
+                      <DatePicker
+                        selected={checkIn}
+                        onChange={(dates) => {
+                          const [start, end] = dates;
+                          setCheckIn(start);
+                          setCheckOut(end);
+                        }}
+                        startDate={checkIn}
+                        endDate={checkOut}
+                        selectsRange
+                        inline
+                        monthsShown={2}
+                        calendarClassName="custom-calendar2"
+                      />
+
+                      {/* Footer */}
+                      <div className="flex justify-between mt-4">
+                        <button
+                          className="text-sm text-gray-600 hover:underline"
+                          onClick={() => {
+                            setCheckIn(null);
+                            setCheckOut(null);
+                          }}
+                        >
+                          Clear dates
+                        </button>
+                        <button
+                          className="bg-black text-white px-4 py-2 rounded-lg text-sm"
+                          onClick={() => setOpen(false)}
+                        >
+                          Close
+                        </button>
+                      </div>
+                    </div>
+                  )}
                 </div>
 
                 <div className="relative w-full">
-                  {/* Input / Button to toggle dropdown */}
                   <div
                     onClick={() => setIsOpen(!isOpen)}
                     className="border-t border-gray-300 p-3 cursor-pointer"
@@ -380,13 +453,20 @@ const PropertyDetails = () => {
                           guestCounts.pets > 1 ? "s" : ""
                         }`}
                     </div>
+                    <div>
+                      {isOpen ? (
+                        <ChevronUp className="size-8 text-gray-600 absolute right-2 top-1/2 transform -translate-y-1/2" />
+                      ) : (
+                        <ChevronDown className="size-8 text-gray-600 absolute right-2 top-1/2 transform -translate-y-1/2" />
+                      )}
+                    </div>
                   </div>
 
                   {/* Dropdown Panel */}
                   {isOpen && (
                     <div
                       ref={guestDropdownRef}
-                      className="absolute top-full right-0 mt-2 bg-white rounded-2xl shadow-2xl border border-gray-200 p-6 w-96 z-50"
+                      className="absolute top-full -right-1 bg-white rounded-2xl shadow-2xl border border-gray-200 p-6 w-82 z-50"
                     >
                       <div className="space-y-6">
                         {["adults", "children", "infants", "pets"].map(
@@ -453,30 +533,6 @@ const PropertyDetails = () => {
               <p className="text-center text-sm text-gray-600 mb-6">
                 You won't be charged yet
               </p>
-
-              {/* Price breakdown */}
-              {calculateNights() > 0 && (
-                <div className="space-y-3">
-                  <div className="flex justify-between">
-                    <span className="underline">
-                      ${property.price} x {calculateNights()} nights
-                    </span>
-                    <span>${totalPrice}</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="underline">Cleaning fee</span>
-                    <span>${cleaningFee}</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="underline">Service fee</span>
-                    <span>${serviceFee}</span>
-                  </div>
-                  <div className="flex justify-between font-semibold pt-3 border-t border-gray-200 text-lg">
-                    <span>Total</span>
-                    <span>${finalTotal}</span>
-                  </div>
-                </div>
-              )}
             </div>
           </div>
         </div>
@@ -552,20 +608,26 @@ const PropertyDetails = () => {
         )}
       </div>
 
-      {/* Location */}
+      {/* Map Section */}
       <div className="mt-12 border-t border-gray-200 pt-12">
         <h3 className="text-2xl font-semibold mb-6">Where you'll be</h3>
-        <div className="bg-gray-200 rounded-lg h-96 mb-6 flex items-center justify-center">
-          <div className="text-center">
-            <MapPin size={48} className="mx-auto text-gray-400 mb-4" />
-            <p className="text-gray-600">Interactive map coming soon</p>
-            <p className="text-sm text-gray-500 mt-2">{property.location}</p>
-          </div>
+        <div className="rounded-lg h-96 mb-6 overflow-hidden">
+          <MapContainer
+            center={property.coordinates || [26.1445, 91.7362]}
+            zoom={13}
+            scrollWheelZoom={false}
+            className="h-full w-full"
+          >
+            <TileLayer
+              attribution='&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a>'
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            />
+            <Marker position={property.coordinates || [26.1445, 91.7362]}>
+              <Popup>{property.title}</Popup>
+            </Marker>
+          </MapContainer>
         </div>
-        <p className="text-gray-700">
-          Guwahati, the largest city in Assam, is known for its rich culture,
-          temples, and scenic beauty along the Brahmaputra River.
-        </p>
+        <p className="text-gray-700">{property.location}</p>
       </div>
 
       {/* Host */}
