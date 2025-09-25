@@ -17,45 +17,19 @@ const Header = () => {
             </span>
           </Link>
 
-          {/* Navigation */}
-          <nav className="hidden md:flex space-x-8">
-            <Link
-              to="/"
-              className="flex items-center text-gray-700 hover:text-gray-900 font-medium"
-            >
-              <span className="mr-2">🏠</span>
-              Homes
-            </Link>
-            <button className="flex items-center text-gray-700 hover:text-gray-900 font-medium">
-              <span className="mr-2 bg-red-500 text-white text-xs px-1 rounded">
-                NEW
-              </span>
-              <span className="mr-2">✨</span>
-              Experiences
-            </button>
-            <button className="flex items-center text-gray-700 hover:text-gray-900 font-medium">
-              <span className="mr-2 bg-blue-500 text-white text-xs px-1 rounded">
-                NEW
-              </span>
-              <span className="mr-2">⚙️</span>
-              Services
-            </button>
-          </nav>
-
           {/* Right side */}
           <div className="flex items-center space-x-4">
-            <button className="hidden md:block text-gray-700 hover:text-gray-900 font-medium">
+            <button className="hidden md:block text-gray-700 hover:text-gray-900 font-medium cursor-pointer hover:bg-gray-200 px-4 py-2 rounded-full transition">
               Become a host
             </button>
-            <button className="p-2 text-gray-700 hover:text-gray-900">
+            <button className=" text-gray-700 hover:text-gray-900 space-x-2 p-3  border border-gray-300 bg-gray-200 rounded-full cursor-pointer">
               <Globe size={16} />
             </button>
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="flex items-center space-x-2 px-4 py-2 border border-gray-300 rounded-full hover:shadow-md transition-shadow"
+              className="flex items-center space-x-2 p-3  border border-gray-300 bg-gray-200 rounded-full hover:shadow-md transition-shadow cursor-pointer"
             >
               <Menu size={16} />
-              <User size={16} className="text-gray-600" />
             </button>
           </div>
         </div>

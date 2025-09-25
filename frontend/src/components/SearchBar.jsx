@@ -210,6 +210,7 @@ const SearchBar = () => {
           )}
 
           {/* Who */}
+
           <div
             className={`flex-1 pl-8 pr-2 py-2 cursor-pointer rounded-full transition-colors flex items-center justify-between relative ${
               activeField === "who" ? "bg-white shadow-lg" : "hover:bg-gray-200"
@@ -219,11 +220,59 @@ const SearchBar = () => {
               setActiveField("who");
             }}
           >
-            <div className="flex-1">
-              <div className="text-xs font-semibold text-gray-900 mb-1">
-                Who
+            <div className="flex-1 flex items-center justify-between">
+              <div>
+                <div className="text-xs font-semibold text-gray-900 mb-1">
+                  Who
+                </div>
+                <div
+                  className="text-sm text-gray-600 truncate max-w-[120px]" // 👈 text truncates if too long
+                  title={`${getTotalGuests()}${
+                    guestCounts.infants > 0
+                      ? `, ${guestCounts.infants} infant${
+                          guestCounts.infants > 1 ? "s" : ""
+                        }`
+                      : ""
+                  }${
+                    guestCounts.pets > 0
+                      ? `, ${guestCounts.pets} pet${
+                          guestCounts.pets > 1 ? "s" : ""
+                        }`
+                      : ""
+                  }`} // 👈 full summary in tooltip
+                >
+                  {getTotalGuests()}
+                  {guestCounts.infants > 0 &&
+                    `, ${guestCounts.infants} infant${
+                      guestCounts.infants > 1 ? "s" : ""
+                    }`}
+                  {guestCounts.pets > 0 &&
+                    `, ${guestCounts.pets} pet${
+                      guestCounts.pets > 1 ? "s" : ""
+                    }`}
+                </div>
               </div>
-              <div className="text-sm text-gray-600">{getTotalGuests()}</div>
+
+              {(guestCounts.adults > 0 ||
+                guestCounts.children > 0 ||
+                guestCounts.infants > 0 ||
+                guestCounts.pets > 0) && (
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setGuestCounts({
+                      adults: 0,
+                      children: 0,
+                      infants: 0,
+                      pets: 0,
+                    });
+                    setSearchData((prev) => ({ ...prev, guests: 0 }));
+                  }}
+                  className="ml-2 text-gray-400 hover:text-gray-600 text-lg cursor-pointer"
+                >
+                  ✕
+                </button>
+              )}
             </div>
 
             {showGuestDropdown && (
@@ -245,7 +294,7 @@ const SearchBar = () => {
                           {type === "adults"
                             ? "Ages 13 or above"
                             : type === "children"
-                            ? "Ages 2-12"
+                            ? "Ages 2–12"
                             : type === "infants"
                             ? "Under 2"
                             : "Bringing a service animal?"}
@@ -285,6 +334,7 @@ const SearchBar = () => {
               </div>
             )}
 
+            {/* Search Button */}
             <button className="bg-[#e61171] text-white px-4 py-3 rounded-full hover:bg-[#E04F54] transition-colors font-bold ml-4 flex items-center gap-2">
               <Search size={18} strokeWidth={3} />
               {activeField && <span>Search</span>}

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import {
   ArrowLeft,
@@ -19,6 +19,7 @@ import {
   Calendar,
   Clock,
   MessageCircle,
+  Grip,
 } from "lucide-react";
 import { properties } from "../data/properties";
 
@@ -28,9 +29,51 @@ const PropertyDetails = () => {
   const [isLiked, setIsLiked] = useState(false);
   const [checkIn, setCheckIn] = useState("");
   const [checkOut, setCheckOut] = useState("");
-  const [guests, setGuests] = useState(1);
   const [showAllAmenities, setShowAllAmenities] = useState(false);
   const [showAllReviews, setShowAllReviews] = useState(false);
+
+  const [isOpen, setIsOpen] = useState(false);
+  const [guestCounts, setGuestCounts] = useState({
+    adults: 1,
+    children: 0,
+    infants: 0,
+    pets: 0,
+  });
+  const guestDropdownRef = useRef(null);
+
+  // Close dropdown on outside click
+  useEffect(() => {
+    function handleClickOutside(e) {
+      if (
+        guestDropdownRef.current &&
+        !guestDropdownRef.current.contains(e.target)
+      ) {
+        setIsOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  const updateGuestCount = (type, increment) => {
+    setGuestCounts((prev) => {
+      const newCount = increment ? prev[type] + 1 : Math.max(0, prev[type] - 1);
+      if (type === "adults" && newCount < 1) return prev;
+
+      const updated = { ...prev, [type]: newCount };
+      const totalGuests = updated.adults + updated.children;
+      if (totalGuests > 16) return prev;
+
+      return updated;
+    });
+  };
+
+  const totalGuests = () => {
+    const total = guestCounts.adults + guestCounts.children;
+    if (total === 0) return "Add guests";
+    if (total === 1) return "1 guest";
+    return `${total} guests`;
+  };
 
   if (!property) {
     return (
@@ -127,7 +170,7 @@ const PropertyDetails = () => {
       </div>
 
       {/* Image Gallery */}
-      <div className="grid grid-cols-4 gap-2 rounded-xl overflow-hidden mb-8 h-96">
+      <div className="grid grid-cols-4 gap-2 rounded-xl overflow-hidden mb-8 h-96 relative">
         <div className="col-span-2 row-span-2">
           <img
             src={property.images[0]}
@@ -143,8 +186,8 @@ const PropertyDetails = () => {
             className="w-full h-full object-cover hover:brightness-90 transition-all cursor-pointer"
           />
         ))}
-        <button className="absolute bottom-4 right-4 bg-white px-4 py-2 rounded-lg border border-gray-300 hover:bg-gray-50 text-sm font-medium">
-          Show all photos
+        <button className="absolute bottom-4 right-4 bg-white px-4 py-2 rounded-lg border flex items-center border-gray-300 hover:bg-gray-50 text-sm font-medium cursor-pointer gap-2">
+          <Grip size={18} /> <span>Show all photos</span>
         </button>
       </div>
 
@@ -271,7 +314,7 @@ const PropertyDetails = () => {
 
         {/* Right Column - Booking */}
         <div className="lg:col-span-1">
-          <div className="sticky top-24">
+          <div className="sticky top-48">
             <div className="border border-gray-200 rounded-xl p-6 shadow-lg">
               <div className="flex items-center justify-between mb-6">
                 <div>
@@ -317,21 +360,89 @@ const PropertyDetails = () => {
                   </div>
                 </div>
 
-                <div className="border-t border-gray-300 p-3">
-                  <label className="block text-xs font-semibold text-gray-900 mb-1">
-                    GUESTS
-                  </label>
-                  <select
-                    value={guests}
-                    onChange={(e) => setGuests(Number(e.target.value))}
-                    className="w-full text-sm border-none outline-none bg-transparent"
+                <div className="relative w-full">
+                  {/* Input / Button to toggle dropdown */}
+                  <div
+                    onClick={() => setIsOpen(!isOpen)}
+                    className="border-t border-gray-300 p-3 cursor-pointer"
                   >
-                    {Array.from({ length: property.guests }, (_, i) => (
-                      <option key={i + 1} value={i + 1}>
-                        {i + 1} guest{i > 0 ? "s" : ""}
-                      </option>
-                    ))}
-                  </select>
+                    <label className="block text-xs font-semibold text-gray-900 mb-1">
+                      GUESTS
+                    </label>
+                    <div className="w-full text-sm bg-transparent">
+                      {totalGuests()}
+                      {guestCounts.infants > 0 &&
+                        `, ${guestCounts.infants} infant${
+                          guestCounts.infants > 1 ? "s" : ""
+                        }`}
+                      {guestCounts.pets > 0 &&
+                        `, ${guestCounts.pets} pet${
+                          guestCounts.pets > 1 ? "s" : ""
+                        }`}
+                    </div>
+                  </div>
+
+                  {/* Dropdown Panel */}
+                  {isOpen && (
+                    <div
+                      ref={guestDropdownRef}
+                      className="absolute top-full right-0 mt-2 bg-white rounded-2xl shadow-2xl border border-gray-200 p-6 w-96 z-50"
+                    >
+                      <div className="space-y-6">
+                        {["adults", "children", "infants", "pets"].map(
+                          (type) => (
+                            <div
+                              key={type}
+                              className="flex items-center justify-between"
+                            >
+                              <div>
+                                <div className="font-semibold text-gray-900 capitalize">
+                                  {type}
+                                </div>
+                                <div className="text-sm text-gray-500">
+                                  {type === "adults"
+                                    ? "Ages 13 or above"
+                                    : type === "children"
+                                    ? "Ages 2–12"
+                                    : type === "infants"
+                                    ? "Under 2"
+                                    : "Bringing a service animal?"}
+                                </div>
+                              </div>
+                              <div className="flex items-center space-x-3">
+                                <button
+                                  onClick={(e) => {
+                                    e.stopPropagation();
+                                    updateGuestCount(type, false);
+                                  }}
+                                  disabled={
+                                    type === "adults"
+                                      ? guestCounts.adults <= 1
+                                      : guestCounts <= 0
+                                  }
+                                  className="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center disabled:opacity-30 disabled:cursor-not-allowed hover:border-gray-400"
+                                >
+                                  -
+                                </button>
+                                <span className="w-8 text-center">
+                                  {guestCounts[type]}
+                                </span>
+                                <button
+                                  onClick={(e) => {
+                                    e.stopPropagation();
+                                    updateGuestCount(type, true);
+                                  }}
+                                  className="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center hover:border-gray-400"
+                                >
+                                  +
+                                </button>
+                              </div>
+                            </div>
+                          )
+                        )}
+                      </div>
+                    </div>
+                  )}
                 </div>
               </div>
 
