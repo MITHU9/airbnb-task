@@ -22,11 +22,18 @@ import {
   Grip,
   ChevronDown,
   ChevronUp,
+  SprayCan,
+  Key,
+  MessageSquare,
+  Tag,
+  Map,
 } from "lucide-react";
 import { properties } from "../data/properties";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import L from "leaflet";
 import DatePicker from "react-datepicker";
+import ToKnow from "../components/ToKnow";
+import "leaflet/dist/leaflet.css";
 
 // Fix for default Leaflet marker icons
 delete L.Icon.Default.prototype._getIconUrl;
@@ -317,15 +324,35 @@ const PropertyDetails = () => {
           </div>
 
           {/* Calendar */}
-          <div className="border-b border-gray-200 pb-8 mb-8">
-            <h3 className="text-xl font-semibold mb-6">Select check-in date</h3>
-            <p className="text-gray-600 mb-6">
+          <div className=" border-gray-200 pb-8 mb-8 relative">
+            <h3 className="text-xl font-semibold mb-2">Select check-in date</h3>
+            <p className="text-gray-600 mb-2">
               Add your travel dates for exact pricing
             </p>
-            <div className="bg-gray-50 rounded-lg p-8 text-center">
-              <Calendar size={48} className="mx-auto text-gray-400 mb-4" />
-              <p className="text-gray-600">Calendar coming soon</p>
-            </div>
+            <DatePicker
+              selected={checkIn}
+              onChange={(dates) => {
+                const [start, end] = dates;
+                setCheckIn(start);
+                setCheckOut(end);
+              }}
+              startDate={checkIn}
+              endDate={checkOut}
+              selectsRange
+              inline
+              monthsShown={2}
+              calendarClassName="custom-calendar"
+            />
+
+            <button
+              className="text-sm absolute right-10 underline text-gray-600 hover:bg-gray-200 hover:text-gray-800 px-3 py-1 rounded-lg cursor-pointer"
+              onClick={() => {
+                setCheckIn(null);
+                setCheckOut(null);
+              }}
+            >
+              Clear dates
+            </button>
           </div>
         </div>
 
@@ -380,7 +407,7 @@ const PropertyDetails = () => {
                       <input
                         type="text"
                         value={checkOut ? checkOut.toLocaleDateString() : ""}
-                        onFocus={() => setOpen(true)} // open popup when clicked
+                        onFocus={() => setOpen(true)}
                         readOnly
                         placeholder="Add date"
                         className="w-full text-sm border-none outline-none bg-transparent cursor-pointer"
@@ -409,7 +436,7 @@ const PropertyDetails = () => {
                         selectsRange
                         inline
                         monthsShown={2}
-                        calendarClassName="custom-calendar2"
+                        calendarClassName="custom-calendar"
                       />
 
                       {/* Footer */}
@@ -540,7 +567,7 @@ const PropertyDetails = () => {
 
       {/* Reviews Section */}
       <div className="mt-12 border-t border-gray-200 pt-12">
-        <div className="flex items-center mb-8">
+        <div className="flex items-center mb-8 justify-center">
           <Star size={24} className="fill-current text-black mr-2" />
           <span className="text-2xl font-bold">{property.rating}</span>
           <span className="text-gray-600 ml-2">
@@ -549,32 +576,81 @@ const PropertyDetails = () => {
         </div>
 
         {/* Review Categories */}
-        <div className="grid grid-cols-2 md:grid-cols-6 gap-4 mb-8">
-          {[
-            { label: "Cleanliness", rating: 4.9 },
-            { label: "Accuracy", rating: 4.8 },
-            { label: "Check-in", rating: 5.0 },
-            { label: "Communication", rating: 4.9 },
-            { label: "Location", rating: 4.7 },
-            { label: "Value", rating: 4.8 },
-          ].map((category) => (
-            <div key={category.label} className="text-center">
-              <div className="text-sm text-gray-600 mb-1">{category.label}</div>
-              <div className="flex items-center justify-center">
-                <div className="w-16 h-1 bg-gray-200 rounded-full mr-2">
-                  <div
-                    className="h-1 bg-black rounded-full"
-                    style={{ width: `${(category.rating / 5) * 100}%` }}
-                  ></div>
+        <div className="border-b border-gray-200 pt-6">
+          <div className="grid grid-cols-1 md:grid-cols-7 gap-8 mb-8">
+            {/* Overall Rating Breakdown */}
+            <div className="border-r border-gray-200 p-1">
+              <h4 className="text-sm font-medium mb-2">Overall rating</h4>
+              {[5, 4, 3, 2, 1].map((star) => (
+                <div key={star} className="flex items-center space-x-2">
+                  <span className="text-sm">{star}</span>
+                  <div className="flex-1 h-1 bg-gray-200 rounded-full">
+                    <div
+                      className="h-1 bg-black rounded-full"
+                      style={{
+                        width: star === 5 ? "95%" : star === 4 ? "4%" : "1%",
+                      }}
+                    ></div>
+                  </div>
                 </div>
-                <span className="text-sm font-semibold">{category.rating}</span>
-              </div>
+              ))}
             </div>
-          ))}
+
+            {/* Categories */}
+            <div className="flex justify-between col-span-6 text-center divide-x divide-gray-200">
+              {[
+                {
+                  label: "Cleanliness",
+                  rating: 4.9,
+                  icon: <SprayCan className="w-8 h-8" />,
+                },
+                {
+                  label: "Accuracy",
+                  rating: 4.9,
+                  icon: <CheckCircle className="w-8 h-8" />,
+                },
+                {
+                  label: "Check-in",
+                  rating: 4.9,
+                  icon: <Key className="w-8 h-8" />,
+                },
+                {
+                  label: "Communication",
+                  rating: 5.0,
+                  icon: <MessageSquare className="w-8 h-8" />,
+                },
+                {
+                  label: "Location",
+                  rating: 4.9,
+                  icon: <Map className="w-8 h-8" />,
+                },
+                {
+                  label: "Value",
+                  rating: 4.9,
+                  icon: <Tag className="w-8 h-8" />,
+                },
+              ].map((category) => (
+                <div
+                  key={category.label}
+                  className="flex flex-col items-center space-y-1 gap-4 px-4"
+                >
+                  <div className="flex flex-col items-center">
+                    <span className="text-sm text-gray-700">
+                      {category.label}
+                    </span>
+                    <span className="text-lg font-semibold">
+                      {category.rating}
+                    </span>
+                  </div>
+                  <div>{category.icon}</div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
 
         {/* Reviews */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8 mt-4">
           {(showAllReviews
             ? property.reviews
             : property.reviews.slice(0, 6)
@@ -591,6 +667,22 @@ const PropertyDetails = () => {
                   <p className="text-gray-600 text-sm">{review.date}</p>
                 </div>
               </div>
+
+              {/* ⭐ Rating Stars */}
+              <div className="flex items-center space-x-1">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <Star
+                    key={i}
+                    size={14}
+                    className={
+                      i < review.rating
+                        ? "fill-gray-800 text-gray-900"
+                        : "text-gray-300"
+                    }
+                  />
+                ))}
+              </div>
+
               <p className="text-gray-700 leading-relaxed">{review.comment}</p>
             </div>
           ))}
@@ -611,7 +703,9 @@ const PropertyDetails = () => {
       {/* Map Section */}
       <div className="mt-12 border-t border-gray-200 pt-12">
         <h3 className="text-2xl font-semibold mb-6">Where you'll be</h3>
-        <div className="rounded-lg h-96 mb-6 overflow-hidden">
+
+        {/* Map Wrapper */}
+        <div className="w-full h-96 mb-6 overflow-hidden rounded-lg">
           <MapContainer
             center={property.coordinates || [26.1445, 91.7362]}
             zoom={13}
@@ -627,6 +721,7 @@ const PropertyDetails = () => {
             </Marker>
           </MapContainer>
         </div>
+
         <p className="text-gray-700">{property.location}</p>
       </div>
 
@@ -700,22 +795,7 @@ const PropertyDetails = () => {
               ))}
             </ul>
           </div>
-          <div>
-            <h4 className="font-semibold mb-4">Safety & property</h4>
-            <ul className="space-y-2 text-gray-700">
-              <li>Carbon monoxide alarm</li>
-              <li>Smoke alarm</li>
-              <li>Security cameras on property</li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-semibold mb-4">Cancellation policy</h4>
-            <p className="text-gray-700">
-              Free cancellation before check-in. Review the full cancellation
-              policy which applies even if you cancel for illness or disruptions
-              caused by COVID-19.
-            </p>
-          </div>
+          <ToKnow />
         </div>
       </div>
     </div>
