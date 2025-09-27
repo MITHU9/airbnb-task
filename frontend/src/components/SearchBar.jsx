@@ -86,7 +86,7 @@ const SearchBar = () => {
               activeField === "where"
                 ? "bg-white shadow-lg"
                 : "hover:bg-gray-200"
-            }`}
+            } relative`}
             onClick={() => setActiveField("where")}
           >
             <div className="text-xs font-semibold text-gray-900 mb-1">
@@ -101,6 +101,82 @@ const SearchBar = () => {
                 setSearchData({ ...searchData, where: e.target.value })
               }
             />
+
+            {/* Dropdown for Where */}
+            {activeField === "where" && (
+              <div className="absolute top-full left-0 mt-2 bg-white rounded-2xl shadow-2xl border border-gray-200 w-[350px] p-4 z-50">
+                {/* Recent searches */}
+                <div className="mb-4">
+                  <h4 className="text-sm font-semibold text-gray-700 mb-2">
+                    Recent searches
+                  </h4>
+                  <div className="p-3 hover:bg-gray-100 rounded-lg cursor-pointer">
+                    <div className="flex items-center gap-3">
+                      <span className="text-pink-500">🏝️</span>
+                      <div>
+                        <div className="text-gray-900 font-medium">
+                          Guwahati
+                        </div>
+                        <div className="text-xs text-gray-500">
+                          Weekend in Oct, Sep · 2 guests
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Suggested destinations */}
+                <div>
+                  <h4 className="text-sm font-semibold text-gray-700 mb-2">
+                    Suggested destinations
+                  </h4>
+                  {[
+                    {
+                      city: "Kolkata, India",
+                      note: "Guests interested in Guwahati also looked here",
+                      icon: "🏙️",
+                    },
+                    {
+                      city: "Darjeeling, India",
+                      note: "For nature-lovers",
+                      icon: "⛰️",
+                    },
+                    {
+                      city: "New Delhi, India",
+                      note: "For sights like India Gate",
+                      icon: "🕌",
+                    },
+                    {
+                      city: "Puri, India",
+                      note: "Known for its beaches",
+                      icon: "🏖️",
+                    },
+                    {
+                      city: "Jaipur, India",
+                      note: "For its stunning architecture",
+                      icon: "🏰",
+                    },
+                  ].map((item, idx) => (
+                    <div
+                      key={idx}
+                      className="p-3 hover:bg-gray-100 rounded-lg cursor-pointer flex items-center gap-3"
+                      onClick={() => {
+                        setSearchData({ ...searchData, where: item.city });
+                        setActiveField(null);
+                      }}
+                    >
+                      <span className="text-blue-500">{item.icon}</span>
+                      <div>
+                        <div className="text-gray-900 font-medium">
+                          {item.city}
+                        </div>
+                        <div className="text-xs text-gray-500">{item.note}</div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
 
           {/* Divider */}

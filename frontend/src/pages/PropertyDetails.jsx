@@ -27,6 +27,7 @@ import {
   MessageSquare,
   Tag,
   Map,
+  Music,
 } from "lucide-react";
 import { properties } from "../data/properties";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
@@ -34,6 +35,7 @@ import L from "leaflet";
 import DatePicker from "react-datepicker";
 import ToKnow from "../components/ToKnow";
 import "leaflet/dist/leaflet.css";
+import useMediaQuery from "../hooks/useMediaQuery";
 
 // Fix for default Leaflet marker icons
 delete L.Icon.Default.prototype._getIconUrl;
@@ -64,6 +66,7 @@ const PropertyDetails = () => {
     pets: 0,
   });
   const guestDropdownRef = useRef(null);
+  const isLarge = useMediaQuery("(min-width: 1024px)");
 
   // Close dropdown on outside click
   useEffect(() => {
@@ -141,6 +144,8 @@ const PropertyDetails = () => {
   const cleaningFee = 25;
   const finalTotal = totalPrice + serviceFee + cleaningFee;
 
+  console.log(open);
+
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       {/* Header */}
@@ -215,9 +220,9 @@ const PropertyDetails = () => {
         </button>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
         {/* Left Column - Details */}
-        <div className="lg:col-span-2">
+        <div className="md:col-span-2">
           {/* Property Info */}
           <div className="border-b border-gray-200 pb-8 mb-8">
             <h2 className="text-xl font-semibold mb-4">
@@ -324,7 +329,7 @@ const PropertyDetails = () => {
           </div>
 
           {/* Calendar */}
-          <div className=" border-gray-200 pb-8 mb-8 relative">
+          <div className=" border-gray-200 pb-8 mb-8 relative w-[400px] lg:w-full">
             <h3 className="text-xl font-semibold mb-2">Select check-in date</h3>
             <p className="text-gray-600 mb-2">
               Add your travel dates for exact pricing
@@ -340,7 +345,7 @@ const PropertyDetails = () => {
               endDate={checkOut}
               selectsRange
               inline
-              monthsShown={2}
+              monthsShown={isLarge ? 2 : 1}
               calendarClassName="custom-calendar"
             />
 
@@ -359,7 +364,7 @@ const PropertyDetails = () => {
         {/* Right Column - Booking */}
         <div className="lg:col-span-1">
           <div className="sticky top-48">
-            <div className="border border-gray-200 rounded-xl p-6 shadow-lg">
+            <div className="border border-gray-200 rounded-xl p-2 lg:p-6 shadow-lg">
               <div className="flex items-center justify-between mb-6">
                 <div>
                   {calculateNights() > 0 ? (
@@ -416,13 +421,65 @@ const PropertyDetails = () => {
                   </div>
 
                   {open && (
-                    <div className="absolute top-20 -left-50 bg-white shadow-lg rounded-xl p-4 z-50">
-                      <h3 className="text-lg font-semibold mb-2">
-                        Select dates
-                      </h3>
-                      <p className="text-sm text-gray-500 mb-4">
-                        Add your travel dates for exact pricing
-                      </p>
+                    <div className="absolute top-0 right-0  lg:-left-50 lg:right-auto bg-white shadow-lg rounded-xl p-4 z-50">
+                      <div className="flex justify-evenly">
+                        <div>
+                          <h3 className="text-lg font-semibold mb-2">
+                            Select dates
+                          </h3>
+                          <p className="text-sm text-gray-500 mb-4">
+                            Add your travel dates for exact pricing
+                          </p>
+                        </div>
+
+                        <div className="grid grid-cols-2 gap-0 border rounded-lg">
+                          {/* Check-In */}
+                          <div
+                            className={`p-3  border-gray-400 ${
+                              open && !checkIn
+                                ? "border border-gray-800"
+                                : "border-r"
+                            }`}
+                          >
+                            <label className="block text-xs font-semibold text-gray-900 mb-1">
+                              CHECK-IN
+                            </label>
+                            <input
+                              type="text"
+                              value={
+                                checkIn ? checkIn.toLocaleDateString() : ""
+                              }
+                              onFocus={() => setOpen(true)}
+                              readOnly
+                              placeholder="Add date"
+                              className="w-full text-sm border-none outline-none bg-transparent cursor-pointer"
+                            />
+                          </div>
+
+                          {/* Check-Out */}
+                          <div
+                            className={`p-3 ${
+                              !checkIn && open
+                                ? "bg-gray-200 cursor-not-allowed"
+                                : "border border-gray-800"
+                            }`}
+                          >
+                            <label className="block text-xs font-semibold text-gray-900 mb-1">
+                              CHECKOUT
+                            </label>
+                            <input
+                              type="text"
+                              value={
+                                checkOut ? checkOut.toLocaleDateString() : ""
+                              }
+                              onFocus={() => setOpen(true)}
+                              readOnly
+                              placeholder="Add date"
+                              className="w-full text-sm border-none outline-none bg-transparent cursor-pointer"
+                            />
+                          </div>
+                        </div>
+                      </div>
 
                       <DatePicker
                         selected={checkIn}
@@ -436,13 +493,13 @@ const PropertyDetails = () => {
                         selectsRange
                         inline
                         monthsShown={2}
-                        calendarClassName="custom-calendar"
+                        calendarClassName="custom-calendar2"
                       />
 
                       {/* Footer */}
                       <div className="flex justify-between mt-4">
                         <button
-                          className="text-sm text-gray-600 hover:underline"
+                          className="text-sm text-gray-600 hover:underline cursor-pointer"
                           onClick={() => {
                             setCheckIn(null);
                             setCheckOut(null);
@@ -451,7 +508,7 @@ const PropertyDetails = () => {
                           Clear dates
                         </button>
                         <button
-                          className="bg-black text-white px-4 py-2 rounded-lg text-sm"
+                          className="bg-black text-white px-4 py-2 rounded-lg text-sm cursor-pointer"
                           onClick={() => setOpen(false)}
                         >
                           Close
@@ -728,58 +785,47 @@ const PropertyDetails = () => {
       {/* Host */}
       <div className="mt-12 border-t border-gray-200 pt-12">
         <h3 className="text-2xl font-semibold mb-8">Meet your host</h3>
-        <div className="bg-white border border-gray-200 rounded-2xl p-8 max-w-md">
-          <div className="flex items-center space-x-4 mb-6">
+        <div className="shadow-2xl flex justify-around border-gray-200 rounded-2xl px-2 py-4 max-w-md">
+          <div className="flex items-center flex-col ">
             <img
               src={property.host.avatar}
               alt={property.host.name}
-              className="w-16 h-16 rounded-full object-cover"
+              className="size-40 rounded-full object-cover p-4"
             />
             <div>
-              <h4 className="text-2xl font-bold">{property.host.name}</h4>
+              <h4 className="text-3xl font-bold">{property.host.name}</h4>
               <p className="text-gray-600">Host</p>
             </div>
           </div>
 
-          <div className="grid grid-cols-3 gap-4 mb-6 text-center">
-            <div>
-              <div className="text-xl font-bold">{property.reviewCount}</div>
+          <div className="flex flex-col gap-4 mt-4">
+            <div className="border-b border-gray-400 pb-2">
+              <div className="text-2xl font-bold">{property.reviewCount}</div>
               <div className="text-xs text-gray-600">Reviews</div>
             </div>
-            <div>
-              <div className="text-xl font-bold">{property.rating}</div>
+            <div className="border-b border-gray-400 pb-2">
+              <div className="text-2xl font-bold">{property.rating}</div>
               <div className="text-xs text-gray-600">Rating</div>
             </div>
             <div>
-              <div className="text-xl font-bold">
+              <div className="text-2xl font-bold">
                 {new Date().getFullYear() - property.host.joinedYear}
               </div>
               <div className="text-xs text-gray-600">Years hosting</div>
             </div>
           </div>
-
-          <div className="space-y-3 mb-6">
-            <div className="flex items-center space-x-2">
-              <Shield size={16} />
-              <span className="text-sm">Identity verified</span>
-            </div>
-            <div className="flex items-center space-x-2">
-              <MessageCircle size={16} />
-              <span className="text-sm">
-                Response rate: {property.host.responseRate}%
-              </span>
-            </div>
-            <div className="flex items-center space-x-2">
-              <Clock size={16} />
-              <span className="text-sm">
-                Response time: {property.host.responseTime}
-              </span>
-            </div>
-          </div>
-
-          <button className="w-full bg-white border border-gray-900 text-gray-900 py-3 rounded-lg font-semibold hover:bg-gray-50">
-            Contact host
-          </button>
+        </div>
+        <div className="mt-10">
+          <p className="text-gray-700 mt-6 max-w-2xl flex items-center gap-2">
+            <Calendar className="inline" />
+            <span>My Work : Property management</span>
+          </p>
+          <p className="text-gray-700 mt-2 max-w-2xl flex items-center gap-2">
+            <Music />
+            <span>
+              Favorite song in high school: Jaychou, blackpink, eason chen
+            </span>
+          </p>
         </div>
       </div>
 
