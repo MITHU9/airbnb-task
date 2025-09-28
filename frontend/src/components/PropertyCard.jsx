@@ -8,7 +8,7 @@ const PropertyCard = ({ property }) => {
 
   return (
     <Link to={`/property/${property.id}`} className="group block">
-      <div className="relative">
+      <div className="relative md:w-full">
         {/* Image carousel */}
         <div className="relative aspect-square rounded-xl overflow-hidden mb-3">
           <img
@@ -19,7 +19,7 @@ const PropertyCard = ({ property }) => {
 
           {/* Guest favorite badge */}
           {property.isGuestFavorite && (
-            <div className="absolute top-3 left-3 bg-white px-2 py-1 rounded-full text-xs font-medium text-gray-700 shadow-sm">
+            <div className="absolute top-3 left-0.5 md:left-3 bg-white px-2 py-1 rounded-full text-xs font-medium text-gray-700 shadow-sm">
               Guest favourite
             </div>
           )}
@@ -30,7 +30,7 @@ const PropertyCard = ({ property }) => {
               e.preventDefault();
               setIsLiked(!isLiked);
             }}
-            className="absolute top-3 right-3 p-2 hover:scale-110 transition-transform"
+            className="absolute top-1 md:top-3 right-0 md:right-3 p-2 hover:scale-110 transition-transform"
           >
             <Heart
               size={20}
@@ -39,46 +39,32 @@ const PropertyCard = ({ property }) => {
               } drop-shadow-sm`}
             />
           </button>
-
-          {/* Navigation dots */}
-          {property.images.length > 1 && (
-            <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 flex space-x-1">
-              {property.images.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    setCurrentImageIndex(index);
-                  }}
-                  className={`w-1.5 h-1.5 rounded-full transition-colors ${
-                    index === currentImageIndex ? "bg-white" : "bg-white/50"
-                  }`}
-                />
-              ))}
-            </div>
-          )}
         </div>
 
         {/* Property details */}
         <div className="space-y-1">
           <div className="flex justify-between items-start">
-            <h3 className="font-semibold text-gray-900 group-hover:underline">
+            <h3 className="font-semibold text-sm text-gray-900 group-hover:underline">
               {property.title}
             </h3>
-            <div className="flex items-center space-x-1 ml-2">
-              <Star size={12} className="fill-current" />
-              <span className="text-sm">{property.rating}</span>
-            </div>
           </div>
 
-          <p className="text-gray-600 text-sm">{property.location}</p>
+          <p className="text-gray-600 hidden md:block  text-sm">
+            {property.location}
+          </p>
 
-          <div className="pt-1">
-            <span className="font-semibold">${property.price}</span>
-            <span className="text-gray-600"> night</span>
-            {property.nights && (
-              <span className="text-gray-600"> · {property.nights} nights</span>
-            )}
+          <div className="pt-1 text-[4px] flex items-center">
+            <div>
+              <span className="md:font-semibold ">${property.price}</span>
+              <span className="text-gray-600 "> for</span>
+              {property.nights && (
+                <span className="text-gray-600"> {property.nights} nts</span>
+              )}
+            </div>
+            <div className="flex items-center space-x-1 ml-2">
+              <Star size={10} className="fill-current" />
+              <span className="text-[2px] md:text-sm">{property.rating}</span>
+            </div>
           </div>
         </div>
       </div>

@@ -43,10 +43,11 @@ const HomePage = () => {
       <main className="px-4 sm:px-6 lg:px-8 py-10">
         {/* --- First Section --- */}
         <div className="mb-8 flex items-center justify-between">
-          <h2 className="text-2xl font-semibold text-gray-900 mb-2">
+          <h2 className="text-xl md:text-2xl font-semibold text-gray-900 md:mb-2">
             Stay near Kamakhya Temple
           </h2>
-          <div className="flex items-center gap-2">
+          {/* Arrows only for md+ */}
+          <div className="hidden md:flex items-center gap-2">
             <button
               onClick={handlePrev1}
               disabled={startIndex1 === 0}
@@ -72,12 +73,13 @@ const HomePage = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-7 gap-6 mb-12 place-items-center">
-          {properties
-            .slice(startIndex1, startIndex1 + visibleCount)
-            .map((property) => (
-              <PropertyCard key={property.id} property={property} />
-            ))}
+        {/* Mobile horizontal scroll, grid for larger */}
+        <div className="flex gap-4 overflow-x-auto scrollbar-hide md:grid md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-7 mb-12">
+          {properties.map((property) => (
+            <div key={property.id} className="flex-shrink-0 w-[40%] sm:w-auto">
+              <PropertyCard property={property} />
+            </div>
+          ))}
         </div>
 
         {/* --- Second Section --- */}
@@ -85,7 +87,7 @@ const HomePage = () => {
           <h2 className="text-2xl font-semibold text-gray-900 mb-2">
             Available for similar dates
           </h2>
-          <div className="flex items-center gap-2">
+          <div className="hidden md:flex items-center gap-2">
             <button
               onClick={handlePrev2}
               disabled={startIndex2 === 0}
@@ -111,12 +113,13 @@ const HomePage = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-7 gap-6 mb-12 place-items-center">
-          {properties
-            .slice(startIndex2, startIndex2 + visibleCount)
-            .map((property) => (
-              <PropertyCard key={property.id} property={property} />
-            ))}
+        {/* Mobile horizontal scroll, grid for larger */}
+        <div className="flex gap-4 overflow-x-auto scrollbar-hide md:grid md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-7 mb-12">
+          {properties.map((property) => (
+            <div key={property.id} className="flex-shrink-0 w-[40%] sm:w-auto">
+              <PropertyCard property={property} />
+            </div>
+          ))}
         </div>
 
         {/* --- Categories Section --- */}
