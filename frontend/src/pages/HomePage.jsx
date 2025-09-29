@@ -2,11 +2,18 @@ import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import PropertyCard from "../components/PropertyCard";
 import { properties } from "../data/properties";
+import { fetchGroupedProperties } from "../api/properties";
+import { useQuery } from "@tanstack/react-query";
 
 const HomePage = () => {
   const [startIndex1, setStartIndex1] = useState(0);
 
   const [visibleCount, setVisibleCount] = useState(1);
+
+  const { data, isLoading, isError } = useQuery({
+    queryKey: ["groupedProperties"],
+    queryFn: fetchGroupedProperties,
+  });
 
   useEffect(() => {
     const updateVisibleCount = () => {
@@ -27,6 +34,8 @@ const HomePage = () => {
     setStartIndex1((prev) =>
       Math.min(prev + 1, properties.length - visibleCount)
     );
+
+  console.log(data);
 
   return (
     <div>
