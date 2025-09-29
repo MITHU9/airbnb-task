@@ -30,7 +30,7 @@ const PropertyCard = ({ property }) => {
               e.preventDefault();
               setIsLiked(!isLiked);
             }}
-            className="absolute top-1 md:top-3 right-0 md:right-3 p-2 hover:scale-110 transition-transform"
+            className="absolute top-1 md:top-3 right-0.5 md:right-3 p-2 hover:scale-110 transition-transform"
           >
             <Heart
               size={20}

@@ -36,6 +36,8 @@ import DatePicker from "react-datepicker";
 import ToKnow from "../components/ToKnow";
 import "leaflet/dist/leaflet.css";
 import useMediaQuery from "../hooks/useMediaQuery";
+import MobileReview from "../components/MobileReview";
+import CalendarModal from "../components/CalendarModal";
 
 // Fix for default Leaflet marker icons
 delete L.Icon.Default.prototype._getIconUrl;
@@ -57,6 +59,7 @@ const PropertyDetails = () => {
   const [open, setOpen] = useState(false);
   const [showAllAmenities, setShowAllAmenities] = useState(false);
   const [showAllReviews, setShowAllReviews] = useState(false);
+  const [calendarOpen, setCalendarOpen] = useState(false);
 
   const [isOpen, setIsOpen] = useState(false);
   const [guestCounts, setGuestCounts] = useState({
@@ -144,12 +147,28 @@ const PropertyDetails = () => {
   const cleaningFee = 25;
   const finalTotal = totalPrice + serviceFee + cleaningFee;
 
-  console.log(open);
+  //console.log(open);
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div className="max-w-7xl mx-auto sm:px-6 lg:px-8 md:py-8">
+      <div className="fixed bottom-0 right-0 left-0 bg-white flex md:hidden justify-between items-center p-4 border border-gray-300 z-40">
+        <div>
+          {totalPrice > 0 && <p className="text-xl font-bold">${totalPrice}</p>}
+          <h3 className="font-semibold">Add dates for prices</h3>
+          <p className="flex items-center space-x-1">
+            <Star size={10} className="fill-current inline " />
+            {property.rating}
+          </p>
+        </div>
+        <div
+          onClick={() => setCalendarOpen(true)}
+          className="mt-4 px-6 py-5 bg-gradient-to-r from-[#E61E4D] to-[#BD1E59] text-white rounded-full text-center font-semibold cursor-pointer hover:from-[#D70466] hover:to-[#BD1E59] transition-all"
+        >
+          Check availability
+        </div>
+      </div>
       {/* Header */}
-      <div className="mb-6">
+      <div className="hidden md:block mb-6">
         <Link
           to="/"
           className="inline-flex items-center text-gray-600 hover:text-gray-900 mb-4"
@@ -199,28 +218,70 @@ const PropertyDetails = () => {
       </div>
 
       {/* Image Gallery */}
-      <div className="grid grid-cols-4 gap-2 rounded-xl overflow-hidden mb-8 h-96 relative">
-        <div className="col-span-2 row-span-2">
-          <img
-            src={property.images[0]}
-            alt={property.title}
-            className="w-full h-full object-cover hover:brightness-90 transition-all cursor-pointer"
-          />
+      <div className="mb-8 relative z-0 ">
+        <div className="block md:hidden relative">
+          <div className="overflow-x-auto flex md:space-x-2 snap-x snap-mandatory scrollbar-hide">
+            {property.images.map((image, index) => (
+              <img
+                key={index}
+                src={image}
+                alt={`${property.title} ${index + 1}`}
+                className="w-full h-80 object-cover flex-shrink-0 snap-center"
+              />
+            ))}
+          </div>
+
+          {/* Top Action Buttons */}
+          <div className="absolute top-4 left-4 flex space-x-3 z-10">
+            <Link
+              to="/"
+              className="bg-white p-2 rounded-full shadow-md hover:bg-gray-100"
+            >
+              <ArrowLeft size={20} className="text-gray-800" />
+            </Link>
+          </div>
+          <div className="absolute top-4 right-4 flex space-x-3 z-10">
+            <button className="bg-white p-2 rounded-full shadow-md hover:bg-gray-100">
+              <Share size={20} className="text-gray-800" />
+            </button>
+            <button
+              onClick={() => setIsLiked(!isLiked)}
+              className="bg-white p-2 rounded-full shadow-md hover:bg-gray-100"
+            >
+              <Heart
+                size={20}
+                className={
+                  isLiked ? "fill-red-500 text-red-500" : "text-gray-800"
+                }
+              />
+            </button>
+          </div>
         </div>
-        {property.images.slice(1, 5).map((image, index) => (
-          <img
-            key={index}
-            src={image}
-            alt={`${property.title} ${index + 2}`}
-            className="w-full h-full object-cover hover:brightness-90 transition-all cursor-pointer"
-          />
-        ))}
-        <button className="absolute bottom-4 right-4 bg-white px-4 py-2 rounded-lg border flex items-center border-gray-300 hover:bg-gray-50 text-sm font-medium cursor-pointer gap-2">
-          <Grip size={18} /> <span>Show all photos</span>
-        </button>
+
+        {/* Desktop (grid layout) */}
+        <div className="hidden md:grid grid-cols-4 gap-2 rounded-xl overflow-hidden h-96 relative">
+          <div className="col-span-2 row-span-2">
+            <img
+              src={property.images[0]}
+              alt={property.title}
+              className="w-full h-full object-cover hover:brightness-90 transition-all cursor-pointer"
+            />
+          </div>
+          {property.images.slice(1, 5).map((image, index) => (
+            <img
+              key={index}
+              src={image}
+              alt={`${property.title} ${index + 2}`}
+              className="w-full h-full object-cover hover:brightness-90 transition-all cursor-pointer"
+            />
+          ))}
+          <button className="absolute bottom-4 right-4 bg-white px-4 py-2 rounded-lg border flex items-center border-gray-300 hover:bg-gray-50 text-sm font-medium cursor-pointer gap-2">
+            <Grip size={18} /> <span>Show all photos</span>
+          </button>
+        </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+      <div className="px-4 py-3 grid grid-cols-1 md:grid-cols-3 gap-12 shadow-md rounded-3xl relative z-20 -mt-20 bg-white">
         {/* Left Column - Details */}
         <div className="md:col-span-2">
           {/* Property Info */}
@@ -329,7 +390,7 @@ const PropertyDetails = () => {
           </div>
 
           {/* Calendar */}
-          <div className=" border-gray-200 pb-8 mb-8 relative w-[400px] lg:w-full">
+          <div className=" border-gray-200 pb-8 mb-8 relative md:w-[400px] lg:w-full">
             <h3 className="text-xl font-semibold mb-2">Select check-in date</h3>
             <p className="text-gray-600 mb-2">
               Add your travel dates for exact pricing
@@ -362,7 +423,7 @@ const PropertyDetails = () => {
         </div>
 
         {/* Right Column - Booking */}
-        <div className="lg:col-span-1">
+        <div className="hidden md:block lg:col-span-1">
           <div className="sticky top-48">
             <div className="border border-gray-200 rounded-xl p-2 lg:p-6 shadow-lg">
               <div className="flex items-center justify-between mb-6">
@@ -633,7 +694,7 @@ const PropertyDetails = () => {
         </div>
 
         {/* Review Categories */}
-        <div className="border-b border-gray-200 pt-6">
+        <div className="border-b hidden md:block border-gray-200 pt-6">
           <div className="grid grid-cols-1 md:grid-cols-7 gap-8 mb-8">
             {/* Overall Rating Breakdown */}
             <div className="border-r border-gray-200 p-1">
@@ -654,7 +715,7 @@ const PropertyDetails = () => {
             </div>
 
             {/* Categories */}
-            <div className="flex justify-between col-span-6 text-center divide-x divide-gray-200">
+            <div className=" flex justify-between col-span-6 text-center divide-x divide-gray-200">
               {[
                 {
                   label: "Cleanliness",
@@ -707,7 +768,7 @@ const PropertyDetails = () => {
         </div>
 
         {/* Reviews */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8 mt-4">
+        <div className="hidden md:grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8 mt-4">
           {(showAllReviews
             ? property.reviews
             : property.reviews.slice(0, 6)
@@ -745,6 +806,10 @@ const PropertyDetails = () => {
           ))}
         </div>
 
+        <div className="md:hidden">
+          <MobileReview property={property} />
+        </div>
+
         {property.reviews.length > 6 && (
           <button
             onClick={() => setShowAllReviews(!showAllReviews)}
@@ -762,7 +827,7 @@ const PropertyDetails = () => {
         <h3 className="text-2xl font-semibold mb-6">Where you'll be</h3>
 
         {/* Map Wrapper */}
-        <div className="w-full h-96 mb-6 overflow-hidden rounded-lg">
+        <div className="md:w-full h-96 mb-6 overflow-hidden rounded-lg px-2">
           <MapContainer
             center={property.coordinates || [26.1445, 91.7362]}
             zoom={13}
@@ -783,7 +848,7 @@ const PropertyDetails = () => {
       </div>
 
       {/* Host */}
-      <div className="mt-12 border-t border-gray-200 pt-12">
+      <div className="p-2 mt-12 border-t border-gray-200 pt-12">
         <h3 className="text-2xl font-semibold mb-8">Meet your host</h3>
         <div className="shadow-2xl flex justify-around border-gray-200 rounded-2xl px-2 py-4 max-w-md">
           <div className="flex items-center flex-col ">
@@ -830,7 +895,7 @@ const PropertyDetails = () => {
       </div>
 
       {/* Things to know */}
-      <div className="mt-12 border-t border-gray-200 pt-12">
+      <div className="p-2 mt-12 border-t border-gray-200 pt-12">
         <h3 className="text-2xl font-semibold mb-8">Things to know</h3>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
@@ -843,6 +908,17 @@ const PropertyDetails = () => {
           </div>
           <ToKnow />
         </div>
+      </div>
+      {/* Calendar Modal for Mobile */}
+      <div className="md:hidden">
+        <CalendarModal
+          isOpen={calendarOpen}
+          onClose={() => setCalendarOpen(false)}
+          checkIn={checkIn}
+          checkOut={checkOut}
+          setCheckIn={setCheckIn}
+          setCheckOut={setCheckOut}
+        />
       </div>
     </div>
   );

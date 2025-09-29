@@ -1,16 +1,19 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Search, Menu, User, Globe } from "lucide-react";
 import SearchBar from "./SearchBar";
 import MobileSearchBar from "./MobileSearch";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
+
+  const isPropertyDetailsPage = location.pathname.startsWith("/property/");
 
   return (
     <header className="sticky top-0 z-50 bg-[#fcfcfcf9] border-b border-gray-200">
-      <MobileSearchBar />
-      <div className="hidden md:block border-b">
+      {!isPropertyDetailsPage && <MobileSearchBar />}
+      <div className="hidden md:block">
         <div className=" px-4 sm:px-6 lg:px-10">
           <div className="flex justify-between items-center h-20">
             {/* Logo */}

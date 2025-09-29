@@ -139,3 +139,14 @@
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+.vertical-calendar .react-datepicker__month-container {
+  display: block !important; /* each month on new line */
+  margin-bottom: 2rem;
+}
+
+.vertical-calendar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

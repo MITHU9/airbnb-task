@@ -6,17 +6,15 @@ import { properties } from "../data/properties";
 const HomePage = () => {
   const [startIndex1, setStartIndex1] = useState(0);
 
-  const [startIndex2, setStartIndex2] = useState(0);
-
   const [visibleCount, setVisibleCount] = useState(1);
 
   useEffect(() => {
     const updateVisibleCount = () => {
       const width = window.innerWidth;
-      if (width >= 1280) setVisibleCount(7); // xl
-      else if (width >= 1024) setVisibleCount(5); // lg
-      else if (width >= 640) setVisibleCount(4); // sm
-      else setVisibleCount(1); // mobile
+      if (width >= 1280) setVisibleCount(7);
+      else if (width >= 1024) setVisibleCount(5);
+      else if (width >= 640) setVisibleCount(4);
+      else setVisibleCount(1);
     };
 
     updateVisibleCount();
@@ -24,17 +22,9 @@ const HomePage = () => {
     return () => window.removeEventListener("resize", updateVisibleCount);
   }, []);
 
-  // --- Handlers for first section ---
   const handlePrev1 = () => setStartIndex1((prev) => Math.max(prev - 1, 0));
   const handleNext1 = () =>
     setStartIndex1((prev) =>
-      Math.min(prev + 1, properties.length - visibleCount)
-    );
-
-  // --- Handlers for second section ---
-  const handlePrev2 = () => setStartIndex2((prev) => Math.max(prev - 1, 0));
-  const handleNext2 = () =>
-    setStartIndex2((prev) =>
       Math.min(prev + 1, properties.length - visibleCount)
     );
 
@@ -73,13 +63,22 @@ const HomePage = () => {
           </div>
         </div>
 
-        {/* Mobile horizontal scroll, grid for larger */}
-        <div className="flex gap-4 overflow-x-auto scrollbar-hide md:grid md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-7 mb-12">
+        {/* Mobile horizontal scroll */}
+        <div className="flex gap-4 overflow-x-auto scrollbar-hide md:hidden mb-12">
           {properties.map((property) => (
-            <div key={property.id} className="flex-shrink-0 w-[40%] sm:w-auto">
+            <div key={property.id} className="flex-shrink-0 w-[40%]">
               <PropertyCard property={property} />
             </div>
           ))}
+        </div>
+
+        {/* Grid for medium+ with arrows */}
+        <div className="hidden md:grid md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-7 gap-6 mb-12">
+          {properties
+            .slice(startIndex1, startIndex1 + visibleCount)
+            .map((property) => (
+              <PropertyCard key={property.id} property={property} />
+            ))}
         </div>
 
         {/* --- Second Section --- */}
@@ -87,12 +86,13 @@ const HomePage = () => {
           <h2 className="text-2xl font-semibold text-gray-900 mb-2">
             Available for similar dates
           </h2>
+          {/* Arrows only for md+ */}
           <div className="hidden md:flex items-center gap-2">
             <button
-              onClick={handlePrev2}
-              disabled={startIndex2 === 0}
+              onClick={handlePrev1}
+              disabled={startIndex1 === 0}
               className={`w-8 h-8 flex items-center justify-center rounded-full border ${
-                startIndex2 === 0
+                startIndex1 === 0
                   ? "bg-gray-200 text-gray-400 cursor-not-allowed"
                   : "bg-gray-100 border-gray-300 text-gray-700 hover:bg-gray-200 cursor-pointer"
               }`}
@@ -100,10 +100,10 @@ const HomePage = () => {
               <ChevronLeft size={20} />
             </button>
             <button
-              onClick={handleNext2}
-              disabled={startIndex2 + visibleCount >= properties.length}
-              className={`w-8 h-8  flex items-center justify-center rounded-full border ${
-                startIndex2 + visibleCount >= properties.length
+              onClick={handleNext1}
+              disabled={startIndex1 + visibleCount >= properties.length}
+              className={`w-8 h-8 flex items-center justify-center rounded-full border ${
+                startIndex1 + visibleCount >= properties.length
                   ? "bg-gray-200 text-gray-400 cursor-not-allowed"
                   : "bg-gray-100 border-gray-300 text-gray-700 hover:bg-gray-200 cursor-pointer"
               }`}
@@ -114,12 +114,21 @@ const HomePage = () => {
         </div>
 
         {/* Mobile horizontal scroll, grid for larger */}
-        <div className="flex gap-4 overflow-x-auto scrollbar-hide md:grid md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-7 mb-12">
+        <div className="flex gap-4 overflow-x-auto scrollbar-hide md:hidden mb-12">
           {properties.map((property) => (
-            <div key={property.id} className="flex-shrink-0 w-[40%] sm:w-auto">
+            <div key={property.id} className="flex-shrink-0 w-[40%]">
               <PropertyCard property={property} />
             </div>
           ))}
+        </div>
+
+        {/* Grid for medium+ with arrows */}
+        <div className="hidden md:grid md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-7 gap-6 mb-12">
+          {properties
+            .slice(startIndex1, startIndex1 + visibleCount)
+            .map((property) => (
+              <PropertyCard key={property.id} property={property} />
+            ))}
         </div>
 
         {/* --- Categories Section --- */}
