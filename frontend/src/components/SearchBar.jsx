@@ -4,7 +4,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { format } from "date-fns";
 
-const SearchBar = () => {
+const SearchBar = ({ onSearch }) => {
   const [activeField, setActiveField] = useState(null);
   const [searchData, setSearchData] = useState();
   const [showGuestDropdown, setShowGuestDropdown] = useState(false);
@@ -105,26 +105,6 @@ const SearchBar = () => {
             {/* Dropdown for Where */}
             {activeField === "where" && (
               <div className="absolute top-full left-0 mt-2 bg-white rounded-2xl shadow-2xl border border-gray-200 w-[350px] p-4 z-50">
-                {/* Recent searches */}
-                <div className="mb-4">
-                  <h4 className="text-sm font-semibold text-gray-700 mb-2">
-                    Recent searches
-                  </h4>
-                  <div className="p-3 hover:bg-gray-100 rounded-lg cursor-pointer">
-                    <div className="flex items-center gap-3">
-                      <span className="text-pink-500">🏝️</span>
-                      <div>
-                        <div className="text-gray-900 font-medium">
-                          Guwahati
-                        </div>
-                        <div className="text-xs text-gray-500">
-                          Weekend in Oct, Sep · 2 guests
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
                 {/* Suggested destinations */}
                 <div>
                   <h4 className="text-sm font-semibold text-gray-700 mb-2">
@@ -132,29 +112,24 @@ const SearchBar = () => {
                   </h4>
                   {[
                     {
-                      city: "Kolkata, India",
-                      note: "Guests interested in Guwahati also looked here",
+                      city: "London, UK",
+                      note: "The city of lights",
                       icon: "🏙️",
                     },
                     {
-                      city: "Darjeeling, India",
-                      note: "For nature-lovers",
+                      city: "East Khasi Hills, India",
+                      note: "For its scenic beauty",
                       icon: "⛰️",
                     },
                     {
-                      city: "New Delhi, India",
-                      note: "For sights like India Gate",
+                      city: "Chandmari, Guwahati, India",
+                      note: "A popular locality",
                       icon: "🕌",
                     },
                     {
-                      city: "Puri, India",
-                      note: "Known for its beaches",
+                      city: "Hatigaon, Guwahati, India",
+                      note: "A serene neighborhood",
                       icon: "🏖️",
-                    },
-                    {
-                      city: "Jaipur, India",
-                      note: "For its stunning architecture",
-                      icon: "🏰",
                     },
                   ].map((item, idx) => (
                     <div
@@ -411,7 +386,10 @@ const SearchBar = () => {
             )}
 
             {/* Search Button */}
-            <button className="bg-[#e61171] text-white px-4 py-3 rounded-full hover:bg-[#E04F54] transition-colors font-bold ml-4 flex items-center gap-2">
+            <button
+              onClick={() => onSearch(searchData)}
+              className="bg-[#e61171] text-white px-4 py-3 rounded-full hover:bg-[#E04F54] transition-colors font-bold ml-4 flex items-center gap-2"
+            >
               <Search size={18} strokeWidth={3} />
               {activeField && <span>Search</span>}
             </button>

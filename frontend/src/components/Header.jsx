@@ -4,7 +4,7 @@ import { Search, Menu, User, Globe } from "lucide-react";
 import SearchBar from "./SearchBar";
 import MobileSearchBar from "./MobileSearch";
 
-const Header = () => {
+const Header = ({ setFilters }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
 
@@ -40,7 +40,7 @@ const Header = () => {
             </div>
           </div>
         </div>
-        <SearchBar />
+        <SearchBar onSearch={(data) => setFilters(data)} />
       </div>
     </header>
   );
