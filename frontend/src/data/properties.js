@@ -97,6 +97,22 @@ export const properties = [
       lat: 26.1445,
       lng: 91.7362,
     },
+    reservations: [
+      {
+        reservationId: "r1-101",
+        guestName: "Amit Sharma",
+        checkIn: "2025-09-10",
+        checkOut: "2025-09-25",
+        status: "completed",
+      },
+      {
+        reservationId: "r1-102",
+        guestName: "Nisha Verma",
+        checkIn: "2025-10-01",
+        checkOut: "2025-11-05",
+        status: "upcoming",
+      },
+    ],
   },
   {
     id: "2",
@@ -160,6 +176,22 @@ export const properties = [
       lat: 26.1558,
       lng: 91.7414,
     },
+    reservations: [
+      {
+        reservationId: "r2-201",
+        guestName: "Karan Gupta",
+        checkIn: "2023-09-10",
+        checkOut: "2023-09-12",
+        status: "completed",
+      },
+      {
+        reservationId: "r2-202",
+        guestName: "Shalini Nair",
+        checkIn: "2023-12-05",
+        checkOut: "2023-12-10",
+        status: "upcoming",
+      },
+    ],
   },
   {
     id: "3",
@@ -223,6 +255,22 @@ export const properties = [
       lat: 26.1734,
       lng: 91.7511,
     },
+    reservations: [
+      {
+        reservationId: "r3-301",
+        guestName: "Deepak Kumar",
+        checkIn: "2023-07-20",
+        checkOut: "2023-07-25",
+        status: "completed",
+      },
+      {
+        reservationId: "r3-302",
+        guestName: "Anjali Singh",
+        checkIn: "2023-11-12",
+        checkOut: "2023-11-18",
+        status: "upcoming",
+      },
+    ],
   },
   {
     id: "4",
@@ -273,6 +321,22 @@ export const properties = [
       lat: 26.1367,
       lng: 91.7654,
     },
+    reservations: [
+      {
+        reservationId: "r4-401",
+        guestName: "Manish Joshi",
+        checkIn: "2023-08-15",
+        checkOut: "2023-08-18",
+        status: "completed",
+      },
+      {
+        reservationId: "r4-402",
+        guestName: "Ritika Kapoor",
+        checkIn: "2023-12-01",
+        checkOut: "2023-12-04",
+        status: "upcoming",
+      },
+    ],
   },
   {
     id: "5",
@@ -328,6 +392,22 @@ export const properties = [
       lat: 26.1289,
       lng: 91.7123,
     },
+    reservations: [
+      {
+        reservationId: "r5-501",
+        guestName: "Alok Mehta",
+        checkIn: "2023-06-10",
+        checkOut: "2023-06-14",
+        status: "completed",
+      },
+      {
+        reservationId: "r5-502",
+        guestName: "Pooja Das",
+        checkIn: "2023-11-25",
+        checkOut: "2023-11-29",
+        status: "upcoming",
+      },
+    ],
   },
   {
     id: "6",
@@ -378,6 +458,22 @@ export const properties = [
       lat: 26.1456,
       lng: 91.7789,
     },
+    reservations: [
+      {
+        reservationId: "r6-601",
+        guestName: "Rohini Iyer",
+        checkIn: "2023-09-05",
+        checkOut: "2023-09-08",
+        status: "completed",
+      },
+      {
+        reservationId: "r6-602",
+        guestName: "Arvind Rao",
+        checkIn: "2023-12-15",
+        checkOut: "2023-12-18",
+        status: "upcoming",
+      },
+    ],
   },
   {
     id: "7",
@@ -433,6 +529,22 @@ export const properties = [
       lat: 26.1289,
       lng: 91.7123,
     },
+    reservations: [
+      {
+        reservationId: "r7-701",
+        guestName: "Sanjay Kulkarni",
+        checkIn: "2023-05-20",
+        checkOut: "2023-05-23",
+        status: "completed",
+      },
+      {
+        reservationId: "r7-702",
+        guestName: "Komal Bhat",
+        checkIn: "2023-11-18",
+        checkOut: "2023-11-22",
+        status: "upcoming",
+      },
+    ],
   },
   {
     id: "8",
@@ -488,5 +600,21 @@ export const properties = [
       lat: 26.1289,
       lng: 91.7123,
     },
+    reservations: [
+      {
+        reservationId: "r8-801",
+        guestName: "Tarun Malhotra",
+        checkIn: "2023-04-10",
+        checkOut: "2023-04-13",
+        status: "completed",
+      },
+      {
+        reservationId: "r8-802",
+        guestName: "Radhika Menon",
+        checkIn: "2023-12-20",
+        checkOut: "2023-12-25",
+        status: "upcoming",
+      },
+    ],
   },
 ];

@@ -150,3 +150,8 @@
   flex-direction: column;
   align-items: center;
 }
+
+.react-datepicker__day.line-through {
+  text-decoration: line-through;
+  pointer-events: none;
+}

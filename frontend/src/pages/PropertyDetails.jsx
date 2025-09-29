@@ -38,8 +38,8 @@ import "leaflet/dist/leaflet.css";
 import useMediaQuery from "../hooks/useMediaQuery";
 import MobileReview from "../components/MobileReview";
 import CalendarModal from "../components/CalendarModal";
+import { getDisabledDates } from "../utils/reserved";
 
-// Fix for default Leaflet marker icons
 delete L.Icon.Default.prototype._getIconUrl;
 L.Icon.Default.mergeOptions({
   iconRetinaUrl:
@@ -97,6 +97,8 @@ const PropertyDetails = () => {
       return updated;
     });
   };
+
+  const reservedDates = getDisabledDates(property.reservations);
 
   const totalGuests = () => {
     const total = guestCounts.adults + guestCounts.children;
@@ -281,7 +283,7 @@ const PropertyDetails = () => {
         </div>
       </div>
 
-      <div className="px-4 py-3 grid grid-cols-1 md:grid-cols-3 gap-12 shadow-md rounded-3xl relative z-20 -mt-20 bg-white">
+      <div className="px-4 py-3 grid grid-cols-1 md:grid-cols-3 gap-12 shadow-md md:shadow-none rounded-3xl relative z-20 -mt-20 md:mt-0 bg-white">
         {/* Left Column - Details */}
         <div className="md:col-span-2">
           {/* Property Info */}
@@ -408,6 +410,14 @@ const PropertyDetails = () => {
               inline
               monthsShown={isLarge ? 2 : 1}
               calendarClassName="custom-calendar"
+              excludeDates={reservedDates}
+              dayClassName={(date) =>
+                reservedDates.some(
+                  (d) => d.toDateString() === date.toDateString()
+                )
+                  ? "line-through text-gray-400 cursor-not-allowed"
+                  : undefined
+              }
             />
 
             <button
@@ -555,6 +565,14 @@ const PropertyDetails = () => {
                         inline
                         monthsShown={2}
                         calendarClassName="custom-calendar2"
+                        excludeDates={reservedDates}
+                        dayClassName={(date) =>
+                          reservedDates.some(
+                            (d) => d.toDateString() === date.toDateString()
+                          )
+                            ? "line-through text-gray-400 cursor-not-allowed"
+                            : undefined
+                        }
                       />
 
                       {/* Footer */}
