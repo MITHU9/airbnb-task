@@ -16,7 +16,7 @@ const HomePage = ({ filters }) => {
     keepPreviousData: true,
   });
 
-  console.log(data, "filter", filters);
+  //console.log(data, "filter", filters);
 
   const {
     data: groupedData,
@@ -109,7 +109,7 @@ const HomePage = ({ filters }) => {
                 <div className="flex gap-4 overflow-x-auto scrollbar-hide md:hidden mb-4">
                   {group.properties.map((property) => (
                     <div key={property.id} className="flex-shrink-0 w-[40%]">
-                      <PropertyCard property={property} />
+                      <PropertyCard property={property} isLoading={loading} />
                     </div>
                   ))}
                 </div>
@@ -118,7 +118,11 @@ const HomePage = ({ filters }) => {
                   {group.properties
                     .slice(startIndex, startIndex + visibleCount)
                     .map((property) => (
-                      <PropertyCard key={property.id} property={property} />
+                      <PropertyCard
+                        key={property.id}
+                        property={property}
+                        isLoading={loading}
+                      />
                     ))}
                 </div>
               </div>

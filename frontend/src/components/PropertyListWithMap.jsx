@@ -3,12 +3,12 @@ import PropertyCard2 from "./PropertyCard2,";
 
 const PropertiesListWithMap = ({ properties, isLoading }) => {
   if (isLoading) return <div className="p-10">Loading...</div>;
-  if (!properties.length) return <div className="p-10">No results found.</div>;
+  if (!properties?.length) return <div className="p-10">No results found.</div>;
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 h-screen mt-4 overflow-y-clip">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 min-h-screen mt-4 overflow-y-clip">
       {/* Left: Property List */}
-      <div className="col-span-2 lg:col-span-1 overflow-y-auto p-4 space-y-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 ">
+      <div className="col-span-2 lg:col-span-1 overflow-y-hidden p-4 space-y-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 ">
         {properties.map((property) => (
           <PropertyCard2 key={property._id} property={property} />
         ))}

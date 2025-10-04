@@ -4,10 +4,15 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { format } from "date-fns";
 
-const SearchBar = ({ onSearch }) => {
-  const [activeField, setActiveField] = useState(null);
+const SearchBar = ({
+  onSearch,
+  activeField,
+  setActiveField,
+  showGuestDropdown,
+  setShowGuestDropdown,
+}) => {
   const [searchData, setSearchData] = useState();
-  const [showGuestDropdown, setShowGuestDropdown] = useState(false);
+
   const [guestCounts, setGuestCounts] = useState({
     adults: 0,
     children: 0,
@@ -277,7 +282,7 @@ const SearchBar = ({ onSearch }) => {
                   Who
                 </div>
                 <div
-                  className="text-sm text-gray-600 truncate max-w-[120px]" // 👈 text truncates if too long
+                  className="text-sm text-gray-600 truncate max-w-[120px]"
                   title={`${getTotalGuests()}${
                     guestCounts.infants > 0
                       ? `, ${guestCounts.infants} infant${

@@ -1,8 +1,12 @@
 import { Heart } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const PropertyCard2 = ({ property }) => {
   return (
-    <div className="rounded-xl overflow-hidden shadow-md hover:shadow-xl transition cursor-pointer h-88">
+    <Link
+      to={`/property/${property._id}`}
+      className="rounded-xl overflow-hidden shadow-md hover:shadow-xl transition cursor-pointer h-88 w-full"
+    >
       <div className="relative ">
         <img
           src={property.images[0]}
@@ -40,7 +44,7 @@ const PropertyCard2 = ({ property }) => {
           </span>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 

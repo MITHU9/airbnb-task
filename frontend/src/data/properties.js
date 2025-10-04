@@ -122,6 +122,7 @@ export const properties = [
       "https://images.pexels.com/photos/1571447/pexels-photo-1571447.jpeg",
       "https://images.pexels.com/photos/1643384/pexels-photo-1643384.jpeg",
       "https://images.pexels.com/photos/2029667/pexels-photo-2029667.jpeg",
+      "https://images.pexels.com/photos/2029667/pexels-photo-2029667.jpeg",
     ],
     title: "Cozy Home in Chandmari",
     subtitle: "Stay near Kamakhya Temple",
@@ -165,13 +166,83 @@ export const properties = [
     reviews: [
       {
         id: "1",
-        user: "Anita",
+        user: "Tanya",
         avatar:
-          "https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?w=150",
-        date: "September 2023",
+          "https://images.pexels.com/photos/1036623/pexels-photo-1036623.jpeg?w=150",
+        date: "August 2023",
         rating: 5,
         comment:
-          "Perfect location and very clean. Rajesh was a great host and provided excellent local tips.",
+          "Most peaceful stay ever! The river views and boat rides were incredible. Bhaskar is an amazing host!",
+      },
+      {
+        id: "2",
+        user: "Rahul",
+        avatar:
+          "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?w=150",
+        date: "September 2023",
+        rating: 4,
+        comment:
+          "Great location and clean rooms. The food could have been a little better, but overall very pleasant.",
+      },
+      {
+        id: "3",
+        user: "Sophia",
+        avatar:
+          "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?w=150",
+        date: "July 2023",
+        rating: 5,
+        comment:
+          "Absolutely loved it! The place was spotless and the host was very friendly. Would definitely return!",
+      },
+      {
+        id: "4",
+        user: "Arjun",
+        avatar:
+          "https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?w=150",
+        date: "June 2023",
+        rating: 3,
+        comment:
+          "The stay was okay, but the Wi-Fi was unreliable. Great views though.",
+      },
+      {
+        id: "5",
+        user: "Emily",
+        avatar:
+          "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?w=150",
+        date: "May 2023",
+        rating: 5,
+        comment:
+          "A hidden gem! Quiet, cozy, and surrounded by nature. Perfect for a weekend escape.",
+      },
+      {
+        id: "6",
+        user: "Hasan",
+        avatar:
+          "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?w=150",
+        date: "April 2023",
+        rating: 4,
+        comment:
+          "Really nice host, comfortable bed, and great location. Breakfast could be more diverse.",
+      },
+      {
+        id: "7",
+        user: "Lara",
+        avatar:
+          "https://images.pexels.com/photos/1130626/pexels-photo-1130626.jpeg?w=150",
+        date: "March 2023",
+        rating: 5,
+        comment:
+          "Everything was perfect — from the interior design to the hospitality. Highly recommended!",
+      },
+      {
+        id: "8",
+        user: "Daniel",
+        avatar:
+          "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?w=150",
+        date: "February 2023",
+        rating: 4,
+        comment:
+          "Nice experience overall. The only issue was a bit of noise at night.",
       },
     ],
     coordinates: {
@@ -182,15 +253,15 @@ export const properties = [
       {
         reservationId: "r2-201",
         guestName: "Karan Gupta",
-        checkIn: "2023-09-10",
-        checkOut: "2023-09-12",
+        checkIn: "2025-10-10",
+        checkOut: "2025-10-20",
         status: "completed",
       },
       {
         reservationId: "r2-202",
         guestName: "Shalini Nair",
-        checkIn: "2023-12-05",
-        checkOut: "2023-12-10",
+        checkIn: "2025-11-05",
+        checkOut: "2025-11-10",
         status: "upcoming",
       },
     ],
@@ -202,6 +273,7 @@ export const properties = [
       "https://images.pexels.com/photos/1457847/pexels-photo-1457847.jpeg",
       "https://images.pexels.com/photos/1457849/pexels-photo-1457849.jpeg",
       "https://images.pexels.com/photos/2029667/pexels-photo-2029667.jpeg",
+      "https://images.pexels.com/photos/1457849/pexels-photo-1457849.jpeg",
     ],
     title: "Garden View Home in Zoo Road",
     subtitle: "Stay near Kamakhya Temple",
@@ -245,13 +317,73 @@ export const properties = [
     reviews: [
       {
         id: "1",
-        user: "Vikram",
+        user: "Tanya",
         avatar:
-          "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?w=150",
+          "https://images.pexels.com/photos/1036623/pexels-photo-1036623.jpeg?w=150",
         date: "August 2023",
         rating: 5,
         comment:
-          "Beautiful house with amazing garden views. Perfect for our family vacation!",
+          "Most peaceful stay ever! The river views and boat rides were incredible. Bhaskar is an amazing host!",
+      },
+      {
+        id: "2",
+        user: "Rahul",
+        avatar:
+          "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?w=150",
+        date: "September 2023",
+        rating: 4,
+        comment:
+          "Great location and clean rooms. The food could have been a little better, but overall very pleasant.",
+      },
+      {
+        id: "3",
+        user: "Sophia",
+        avatar:
+          "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?w=150",
+        date: "July 2023",
+        rating: 5,
+        comment:
+          "Absolutely loved it! The place was spotless and the host was very friendly. Would definitely return!",
+      },
+      {
+        id: "4",
+        user: "Arjun",
+        avatar:
+          "https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?w=150",
+        date: "June 2023",
+        rating: 3,
+        comment:
+          "The stay was okay, but the Wi-Fi was unreliable. Great views though.",
+      },
+      {
+        id: "5",
+        user: "Emily",
+        avatar:
+          "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?w=150",
+        date: "May 2023",
+        rating: 5,
+        comment:
+          "A hidden gem! Quiet, cozy, and surrounded by nature. Perfect for a weekend escape.",
+      },
+      {
+        id: "6",
+        user: "Hasan",
+        avatar:
+          "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?w=150",
+        date: "April 2023",
+        rating: 4,
+        comment:
+          "Really nice host, comfortable bed, and great location. Breakfast could be more diverse.",
+      },
+      {
+        id: "7",
+        user: "Lara",
+        avatar:
+          "https://images.pexels.com/photos/1130626/pexels-photo-1130626.jpeg?w=150",
+        date: "March 2023",
+        rating: 5,
+        comment:
+          "Everything was perfect — from the interior design to the hospitality. Highly recommended!",
       },
     ],
     coordinates: {
@@ -262,15 +394,15 @@ export const properties = [
       {
         reservationId: "r3-301",
         guestName: "Deepak Kumar",
-        checkIn: "2023-07-20",
-        checkOut: "2023-07-25",
+        checkIn: "2025-09-20",
+        checkOut: "2025-10-25",
         status: "completed",
       },
       {
         reservationId: "r3-302",
         guestName: "Anjali Singh",
-        checkIn: "2023-11-12",
-        checkOut: "2023-11-18",
+        checkIn: "2025-11-12",
+        checkOut: "2025-11-18",
         status: "upcoming",
       },
     ],
@@ -282,6 +414,7 @@ export const properties = [
       "https://images.pexels.com/photos/1457852/pexels-photo-1457852.jpeg",
       "https://images.pexels.com/photos/1457854/pexels-photo-1457854.jpeg",
       "https://images.pexels.com/photos/2029667/pexels-photo-2029667.jpeg",
+      "https://images.pexels.com/photos/1457849/pexels-photo-1457849.jpeg",
     ],
     title: "Modern Apartment in Rehabari",
     subtitle: "Stay near Kamakhya Temple",
@@ -312,13 +445,103 @@ export const properties = [
     reviews: [
       {
         id: "1",
-        user: "Priya",
+        user: "Tanya",
+        avatar:
+          "https://images.pexels.com/photos/1036623/pexels-photo-1036623.jpeg?w=150",
+        date: "August 2023",
+        rating: 5,
+        comment:
+          "Most peaceful stay ever! The river views and boat rides were incredible. Bhaskar is an amazing host!",
+      },
+      {
+        id: "2",
+        user: "Rahul",
+        avatar:
+          "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?w=150",
+        date: "September 2023",
+        rating: 4,
+        comment:
+          "Great location and clean rooms. The food could have been a little better, but overall very pleasant.",
+      },
+      {
+        id: "3",
+        user: "Sophia",
         avatar:
           "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?w=150",
         date: "July 2023",
         rating: 5,
         comment:
-          "Great apartment with modern facilities. Perfect for business travelers.",
+          "Absolutely loved it! The place was spotless and the host was very friendly. Would definitely return!",
+      },
+      {
+        id: "4",
+        user: "Arjun",
+        avatar:
+          "https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?w=150",
+        date: "June 2023",
+        rating: 3,
+        comment:
+          "The stay was okay, but the Wi-Fi was unreliable. Great views though.",
+      },
+      {
+        id: "5",
+        user: "Emily",
+        avatar:
+          "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?w=150",
+        date: "May 2023",
+        rating: 5,
+        comment:
+          "A hidden gem! Quiet, cozy, and surrounded by nature. Perfect for a weekend escape.",
+      },
+      {
+        id: "6",
+        user: "Hasan",
+        avatar:
+          "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?w=150",
+        date: "April 2023",
+        rating: 4,
+        comment:
+          "Really nice host, comfortable bed, and great location. Breakfast could be more diverse.",
+      },
+      {
+        id: "7",
+        user: "Lara",
+        avatar:
+          "https://images.pexels.com/photos/1130626/pexels-photo-1130626.jpeg?w=150",
+        date: "March 2023",
+        rating: 5,
+        comment:
+          "Everything was perfect — from the interior design to the hospitality. Highly recommended!",
+      },
+      {
+        id: "8",
+        user: "Daniel",
+        avatar:
+          "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?w=150",
+        date: "February 2023",
+        rating: 4,
+        comment:
+          "Nice experience overall. The only issue was a bit of noise at night.",
+      },
+      {
+        id: "9",
+        user: "Maya",
+        avatar:
+          "https://images.pexels.com/photos/774095/pexels-photo-774095.jpeg?w=150",
+        date: "January 2023",
+        rating: 5,
+        comment:
+          "Stunning property! The river view was breathtaking and the service was excellent.",
+      },
+      {
+        id: "10",
+        user: "Omar",
+        avatar:
+          "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?w=150",
+        date: "December 2022",
+        rating: 4,
+        comment:
+          "Really good value for money. Would have been a 5-star if the check-in was faster.",
       },
     ],
     coordinates: {
@@ -329,8 +552,8 @@ export const properties = [
       {
         reservationId: "r4-401",
         guestName: "Manish Joshi",
-        checkIn: "2023-08-15",
-        checkOut: "2023-08-18",
+        checkIn: "2025-09-15",
+        checkOut: "2025-09-18",
         status: "completed",
       },
       {
@@ -348,6 +571,7 @@ export const properties = [
       "https://images.pexels.com/photos/1571453/pexels-photo-1571453.jpeg",
       "https://images.pexels.com/photos/1571452/pexels-photo-1571452.jpeg",
       "https://images.pexels.com/photos/1571451/pexels-photo-1571451.jpeg",
+      "https://images.pexels.com/photos/2029667/pexels-photo-2029667.jpeg",
       "https://images.pexels.com/photos/2029667/pexels-photo-2029667.jpeg",
     ],
     title: "Luxury Apartment in Hatigaon",
@@ -384,13 +608,103 @@ export const properties = [
     reviews: [
       {
         id: "1",
-        user: "Rahul",
+        user: "Tanya",
         avatar:
-          "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?w=150",
-        date: "June 2023",
+          "https://images.pexels.com/photos/1036623/pexels-photo-1036623.jpeg?w=150",
+        date: "August 2023",
         rating: 5,
         comment:
-          "Amazing facilities! The pool and gym were excellent. Maya was very helpful.",
+          "Most peaceful stay ever! The river views and boat rides were incredible. Bhaskar is an amazing host!",
+      },
+      {
+        id: "2",
+        user: "Rahul",
+        avatar:
+          "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?w=150",
+        date: "September 2023",
+        rating: 4,
+        comment:
+          "Great location and clean rooms. The food could have been a little better, but overall very pleasant.",
+      },
+      {
+        id: "3",
+        user: "Sophia",
+        avatar:
+          "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?w=150",
+        date: "July 2023",
+        rating: 5,
+        comment:
+          "Absolutely loved it! The place was spotless and the host was very friendly. Would definitely return!",
+      },
+      {
+        id: "4",
+        user: "Arjun",
+        avatar:
+          "https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?w=150",
+        date: "June 2023",
+        rating: 3,
+        comment:
+          "The stay was okay, but the Wi-Fi was unreliable. Great views though.",
+      },
+      {
+        id: "5",
+        user: "Emily",
+        avatar:
+          "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?w=150",
+        date: "May 2023",
+        rating: 5,
+        comment:
+          "A hidden gem! Quiet, cozy, and surrounded by nature. Perfect for a weekend escape.",
+      },
+      {
+        id: "6",
+        user: "Hasan",
+        avatar:
+          "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?w=150",
+        date: "April 2023",
+        rating: 4,
+        comment:
+          "Really nice host, comfortable bed, and great location. Breakfast could be more diverse.",
+      },
+      {
+        id: "7",
+        user: "Lara",
+        avatar:
+          "https://images.pexels.com/photos/1130626/pexels-photo-1130626.jpeg?w=150",
+        date: "March 2023",
+        rating: 5,
+        comment:
+          "Everything was perfect — from the interior design to the hospitality. Highly recommended!",
+      },
+      {
+        id: "8",
+        user: "Daniel",
+        avatar:
+          "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?w=150",
+        date: "February 2023",
+        rating: 4,
+        comment:
+          "Nice experience overall. The only issue was a bit of noise at night.",
+      },
+      {
+        id: "9",
+        user: "Maya",
+        avatar:
+          "https://images.pexels.com/photos/774095/pexels-photo-774095.jpeg?w=150",
+        date: "January 2023",
+        rating: 5,
+        comment:
+          "Stunning property! The river view was breathtaking and the service was excellent.",
+      },
+      {
+        id: "10",
+        user: "Omar",
+        avatar:
+          "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?w=150",
+        date: "December 2022",
+        rating: 4,
+        comment:
+          "Really good value for money. Would have been a 5-star if the check-in was faster.",
       },
     ],
     coordinates: {
@@ -401,15 +715,15 @@ export const properties = [
       {
         reservationId: "r5-501",
         guestName: "Alok Mehta",
-        checkIn: "2023-06-10",
-        checkOut: "2023-06-14",
+        checkIn: "2025-09-10",
+        checkOut: "2025-10-14",
         status: "completed",
       },
       {
         reservationId: "r5-502",
         guestName: "Pooja Das",
-        checkIn: "2023-11-25",
-        checkOut: "2023-11-29",
+        checkIn: "2025-11-25",
+        checkOut: "2025-11-29",
         status: "upcoming",
       },
     ],
@@ -420,6 +734,7 @@ export const properties = [
       "https://images.pexels.com/photos/1643389/pexels-photo-1643389.jpeg",
       "https://images.pexels.com/photos/1643388/pexels-photo-1643388.jpeg",
       "https://images.pexels.com/photos/1643387/pexels-photo-1643387.jpeg",
+      "https://images.pexels.com/photos/2029667/pexels-photo-2029667.jpeg",
       "https://images.pexels.com/photos/2029667/pexels-photo-2029667.jpeg",
     ],
     title: "Comfortable Stay in Lachit Nagar",
@@ -451,13 +766,83 @@ export const properties = [
     reviews: [
       {
         id: "1",
-        user: "Sneha",
+        user: "Tanya",
         avatar:
-          "https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?w=150",
+          "https://images.pexels.com/photos/1036623/pexels-photo-1036623.jpeg?w=150",
         date: "August 2023",
         rating: 5,
         comment:
-          "Very comfortable stay with great amenities. Ravi was a wonderful host!",
+          "Most peaceful stay ever! The river views and boat rides were incredible. Bhaskar is an amazing host!",
+      },
+      {
+        id: "2",
+        user: "Rahul",
+        avatar:
+          "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?w=150",
+        date: "September 2023",
+        rating: 4,
+        comment:
+          "Great location and clean rooms. The food could have been a little better, but overall very pleasant.",
+      },
+      {
+        id: "3",
+        user: "Sophia",
+        avatar:
+          "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?w=150",
+        date: "July 2023",
+        rating: 5,
+        comment:
+          "Absolutely loved it! The place was spotless and the host was very friendly. Would definitely return!",
+      },
+      {
+        id: "4",
+        user: "Arjun",
+        avatar:
+          "https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?w=150",
+        date: "June 2023",
+        rating: 3,
+        comment:
+          "The stay was okay, but the Wi-Fi was unreliable. Great views though.",
+      },
+      {
+        id: "5",
+        user: "Emily",
+        avatar:
+          "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?w=150",
+        date: "May 2023",
+        rating: 5,
+        comment:
+          "A hidden gem! Quiet, cozy, and surrounded by nature. Perfect for a weekend escape.",
+      },
+      {
+        id: "6",
+        user: "Hasan",
+        avatar:
+          "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?w=150",
+        date: "April 2023",
+        rating: 4,
+        comment:
+          "Really nice host, comfortable bed, and great location. Breakfast could be more diverse.",
+      },
+      {
+        id: "7",
+        user: "Lara",
+        avatar:
+          "https://images.pexels.com/photos/1130626/pexels-photo-1130626.jpeg?w=150",
+        date: "March 2023",
+        rating: 5,
+        comment:
+          "Everything was perfect — from the interior design to the hospitality. Highly recommended!",
+      },
+      {
+        id: "8",
+        user: "Daniel",
+        avatar:
+          "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?w=150",
+        date: "February 2023",
+        rating: 4,
+        comment:
+          "Nice experience overall. The only issue was a bit of noise at night.",
       },
     ],
     coordinates: {
@@ -468,15 +853,15 @@ export const properties = [
       {
         reservationId: "r6-601",
         guestName: "Rohini Iyer",
-        checkIn: "2023-09-05",
-        checkOut: "2023-09-08",
+        checkIn: "2025-09-05",
+        checkOut: "2025-09-08",
         status: "completed",
       },
       {
         reservationId: "r6-602",
         guestName: "Arvind Rao",
-        checkIn: "2023-12-15",
-        checkOut: "2023-12-18",
+        checkIn: "2025-12-15",
+        checkOut: "2025-12-18",
         status: "upcoming",
       },
     ],
@@ -488,6 +873,7 @@ export const properties = [
       "https://images.pexels.com/photos/2121120/pexels-photo-2121120.jpeg",
       "https://images.pexels.com/photos/2121119/pexels-photo-2121119.jpeg",
       "https://images.pexels.com/photos/2029667/pexels-photo-2029667.jpeg",
+      "https://images.pexels.com/photos/2121121/pexels-photo-2121121.jpeg",
     ],
     title: "River View Villa in Fancy Bazar",
     subtitle: "Stay near Kamakhya Temple",
@@ -562,8 +948,8 @@ export const properties = [
       {
         reservationId: "r7-701",
         guestName: "Sanjay Kulkarni",
-        checkIn: "2023-05-20",
-        checkOut: "2023-05-23",
+        checkIn: "2025-08-20",
+        checkOut: "2025-10-23",
         status: "completed",
       },
       {
@@ -582,6 +968,7 @@ export const properties = [
       "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg",
       "https://images.pexels.com/photos/1396125/pexels-photo-1396125.jpeg",
       "https://images.pexels.com/photos/2029667/pexels-photo-2029667.jpeg",
+      "https://images.pexels.com/photos/1396125/pexels-photo-1396125.jpeg",
     ],
     title: "Penthouse in Christian Basti",
     subtitle: "Stay near Kamakhya Temple",
@@ -629,13 +1016,83 @@ export const properties = [
     reviews: [
       {
         id: "1",
-        user: "Neha",
+        user: "Tanya",
         avatar:
           "https://images.pexels.com/photos/1036623/pexels-photo-1036623.jpeg?w=150",
+        date: "August 2023",
+        rating: 5,
+        comment:
+          "Most peaceful stay ever! The river views and boat rides were incredible. Bhaskar is an amazing host!",
+      },
+      {
+        id: "2",
+        user: "Rahul",
+        avatar:
+          "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?w=150",
+        date: "September 2023",
+        rating: 4,
+        comment:
+          "Great location and clean rooms. The food could have been a little better, but overall very pleasant.",
+      },
+      {
+        id: "3",
+        user: "Sophia",
+        avatar:
+          "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?w=150",
         date: "July 2023",
         rating: 5,
         comment:
-          "Incredible penthouse with amazing views! Samuel was very helpful and the location is perfect.",
+          "Absolutely loved it! The place was spotless and the host was very friendly. Would definitely return!",
+      },
+      {
+        id: "4",
+        user: "Arjun",
+        avatar:
+          "https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?w=150",
+        date: "June 2023",
+        rating: 3,
+        comment:
+          "The stay was okay, but the Wi-Fi was unreliable. Great views though.",
+      },
+      {
+        id: "5",
+        user: "Emily",
+        avatar:
+          "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?w=150",
+        date: "May 2023",
+        rating: 5,
+        comment:
+          "A hidden gem! Quiet, cozy, and surrounded by nature. Perfect for a weekend escape.",
+      },
+      {
+        id: "6",
+        user: "Hasan",
+        avatar:
+          "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?w=150",
+        date: "April 2023",
+        rating: 4,
+        comment:
+          "Really nice host, comfortable bed, and great location. Breakfast could be more diverse.",
+      },
+      {
+        id: "7",
+        user: "Lara",
+        avatar:
+          "https://images.pexels.com/photos/1130626/pexels-photo-1130626.jpeg?w=150",
+        date: "March 2023",
+        rating: 5,
+        comment:
+          "Everything was perfect — from the interior design to the hospitality. Highly recommended!",
+      },
+      {
+        id: "8",
+        user: "Daniel",
+        avatar:
+          "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?w=150",
+        date: "February 2023",
+        rating: 4,
+        comment:
+          "Nice experience overall. The only issue was a bit of noise at night.",
       },
     ],
     coordinates: {
@@ -646,15 +1103,15 @@ export const properties = [
       {
         reservationId: "r8-801",
         guestName: "Tarun Malhotra",
-        checkIn: "2023-04-10",
-        checkOut: "2023-04-13",
+        checkIn: "2025-08-10",
+        checkOut: "2025-10-13",
         status: "completed",
       },
       {
         reservationId: "r8-802",
         guestName: "Radhika Menon",
-        checkIn: "2023-12-20",
-        checkOut: "2023-12-25",
+        checkIn: "2025-12-19",
+        checkOut: "2025-12-25",
         status: "upcoming",
       },
     ],
@@ -665,6 +1122,7 @@ export const properties = [
       "https://images.pexels.com/photos/1080721/pexels-photo-1080721.jpeg",
       "https://images.pexels.com/photos/1080696/pexels-photo-1080696.jpeg",
       "https://images.pexels.com/photos/1080711/pexels-photo-1080711.jpeg",
+      "https://images.pexels.com/photos/2029667/pexels-photo-2029667.jpeg",
       "https://images.pexels.com/photos/2029667/pexels-photo-2029667.jpeg",
     ],
     title: "Cozy Studio in Ulubari",
@@ -701,13 +1159,93 @@ export const properties = [
     reviews: [
       {
         id: "1",
-        user: "Amit",
+        user: "Tanya",
         avatar:
-          "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?w=150",
+          "https://images.pexels.com/photos/1036623/pexels-photo-1036623.jpeg?w=150",
         date: "August 2023",
         rating: 5,
         comment:
-          "Perfect studio for my business trip. Clean, modern and great location!",
+          "Most peaceful stay ever! The river views and boat rides were incredible. Bhaskar is an amazing host!",
+      },
+      {
+        id: "2",
+        user: "Rahul",
+        avatar:
+          "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?w=150",
+        date: "September 2023",
+        rating: 4,
+        comment:
+          "Great location and clean rooms. The food could have been a little better, but overall very pleasant.",
+      },
+      {
+        id: "3",
+        user: "Sophia",
+        avatar:
+          "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?w=150",
+        date: "July 2023",
+        rating: 5,
+        comment:
+          "Absolutely loved it! The place was spotless and the host was very friendly. Would definitely return!",
+      },
+      {
+        id: "4",
+        user: "Arjun",
+        avatar:
+          "https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?w=150",
+        date: "June 2023",
+        rating: 3,
+        comment:
+          "The stay was okay, but the Wi-Fi was unreliable. Great views though.",
+      },
+      {
+        id: "5",
+        user: "Emily",
+        avatar:
+          "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?w=150",
+        date: "May 2023",
+        rating: 5,
+        comment:
+          "A hidden gem! Quiet, cozy, and surrounded by nature. Perfect for a weekend escape.",
+      },
+      {
+        id: "6",
+        user: "Hasan",
+        avatar:
+          "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?w=150",
+        date: "April 2023",
+        rating: 4,
+        comment:
+          "Really nice host, comfortable bed, and great location. Breakfast could be more diverse.",
+      },
+      {
+        id: "7",
+        user: "Lara",
+        avatar:
+          "https://images.pexels.com/photos/1130626/pexels-photo-1130626.jpeg?w=150",
+        date: "March 2023",
+        rating: 5,
+        comment:
+          "Everything was perfect — from the interior design to the hospitality. Highly recommended!",
+      },
+      {
+        id: "8",
+        user: "Daniel",
+        avatar:
+          "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?w=150",
+        date: "February 2023",
+        rating: 4,
+        comment:
+          "Nice experience overall. The only issue was a bit of noise at night.",
+      },
+      {
+        id: "9",
+        user: "Maya",
+        avatar:
+          "https://images.pexels.com/photos/774095/pexels-photo-774095.jpeg?w=150",
+        date: "January 2023",
+        rating: 5,
+        comment:
+          "Stunning property! The river view was breathtaking and the service was excellent.",
       },
     ],
     coordinates: { lat: 26.1723, lng: 91.7412 },
@@ -715,15 +1253,15 @@ export const properties = [
       {
         reservationId: "r9-901",
         guestName: "Vivek Shah",
-        checkIn: "2023-08-22",
-        checkOut: "2023-08-25",
+        checkIn: "2026-01-22",
+        checkOut: "2026-01-25",
         status: "completed",
       },
       {
         reservationId: "r9-902",
         guestName: "Shruti Patel",
-        checkIn: "2023-12-08",
-        checkOut: "2023-12-11",
+        checkIn: "2025-12-08",
+        checkOut: "2025-12-11",
         status: "upcoming",
       },
     ],
@@ -734,6 +1272,7 @@ export const properties = [
       "https://images.pexels.com/photos/1329711/pexels-photo-1329711.jpeg",
       "https://images.pexels.com/photos/1329559/pexels-photo-1329559.jpeg",
       "https://images.pexels.com/photos/1329715/pexels-photo-1329715.jpeg",
+      "https://images.pexels.com/photos/2029667/pexels-photo-2029667.jpeg",
       "https://images.pexels.com/photos/2029667/pexels-photo-2029667.jpeg",
     ],
     title: "Heritage Bungalow in Pan Bazar",
@@ -803,15 +1342,15 @@ export const properties = [
       {
         reservationId: "r10-1001",
         guestName: "James Anderson",
-        checkIn: "2023-06-15",
-        checkOut: "2023-06-20",
+        checkIn: "2025-09-17",
+        checkOut: "2025-10-20",
         status: "completed",
       },
       {
         reservationId: "r10-1002",
         guestName: "Maria Garcia",
-        checkIn: "2023-12-12",
-        checkOut: "2023-12-16",
+        checkIn: "2025-12-12",
+        checkOut: "2025-12-16",
         status: "upcoming",
       },
     ],
@@ -822,6 +1361,7 @@ export const properties = [
       "https://images.pexels.com/photos/1571457/pexels-photo-1571457.jpeg",
       "https://images.pexels.com/photos/1571458/pexels-photo-1571458.jpeg",
       "https://images.pexels.com/photos/1571459/pexels-photo-1571459.jpeg",
+      "https://images.pexels.com/photos/2029667/pexels-photo-2029667.jpeg",
       "https://images.pexels.com/photos/2029667/pexels-photo-2029667.jpeg",
     ],
     title: "Modern Flat in Ganeshguri",
@@ -868,13 +1408,83 @@ export const properties = [
     reviews: [
       {
         id: "1",
-        user: "Sunil",
+        user: "Tanya",
         avatar:
-          "https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?w=150",
+          "https://images.pexels.com/photos/1036623/pexels-photo-1036623.jpeg?w=150",
+        date: "August 2023",
+        rating: 5,
+        comment:
+          "Most peaceful stay ever! The river views and boat rides were incredible. Bhaskar is an amazing host!",
+      },
+      {
+        id: "2",
+        user: "Rahul",
+        avatar:
+          "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?w=150",
+        date: "September 2023",
+        rating: 4,
+        comment:
+          "Great location and clean rooms. The food could have been a little better, but overall very pleasant.",
+      },
+      {
+        id: "3",
+        user: "Sophia",
+        avatar:
+          "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?w=150",
         date: "July 2023",
         rating: 5,
         comment:
-          "Excellent location and very modern apartment. Rohini was super helpful with local recommendations.",
+          "Absolutely loved it! The place was spotless and the host was very friendly. Would definitely return!",
+      },
+      {
+        id: "4",
+        user: "Arjun",
+        avatar:
+          "https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?w=150",
+        date: "June 2023",
+        rating: 3,
+        comment:
+          "The stay was okay, but the Wi-Fi was unreliable. Great views though.",
+      },
+      {
+        id: "5",
+        user: "Emily",
+        avatar:
+          "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?w=150",
+        date: "May 2023",
+        rating: 5,
+        comment:
+          "A hidden gem! Quiet, cozy, and surrounded by nature. Perfect for a weekend escape.",
+      },
+      {
+        id: "6",
+        user: "Hasan",
+        avatar:
+          "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?w=150",
+        date: "April 2023",
+        rating: 4,
+        comment:
+          "Really nice host, comfortable bed, and great location. Breakfast could be more diverse.",
+      },
+      {
+        id: "7",
+        user: "Lara",
+        avatar:
+          "https://images.pexels.com/photos/1130626/pexels-photo-1130626.jpeg?w=150",
+        date: "March 2023",
+        rating: 5,
+        comment:
+          "Everything was perfect — from the interior design to the hospitality. Highly recommended!",
+      },
+      {
+        id: "8",
+        user: "Daniel",
+        avatar:
+          "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?w=150",
+        date: "February 2023",
+        rating: 4,
+        comment:
+          "Nice experience overall. The only issue was a bit of noise at night.",
       },
     ],
     coordinates: { lat: 26.1389, lng: 91.7567 },
@@ -882,15 +1492,15 @@ export const properties = [
       {
         reservationId: "r11-1101",
         guestName: "Ritu Kapoor",
-        checkIn: "2023-07-28",
-        checkOut: "2023-08-02",
+        checkIn: "2025-07-28",
+        checkOut: "2025-09-02",
         status: "completed",
       },
       {
         reservationId: "r11-1102",
         guestName: "Nikhil Agarwal",
-        checkIn: "2023-12-22",
-        checkOut: "2023-12-26",
+        checkIn: "2025-12-23",
+        checkOut: "2025-12-29",
         status: "upcoming",
       },
     ],
@@ -901,6 +1511,7 @@ export const properties = [
       "https://images.pexels.com/photos/1648771/pexels-photo-1648771.jpeg",
       "https://images.pexels.com/photos/1648776/pexels-photo-1648776.jpeg",
       "https://images.pexels.com/photos/1648777/pexels-photo-1648777.jpeg",
+      "https://images.pexels.com/photos/2029667/pexels-photo-2029667.jpeg",
       "https://images.pexels.com/photos/2029667/pexels-photo-2029667.jpeg",
     ],
     title: "Riverside Cottage in Guwahati",
@@ -954,21 +1565,111 @@ export const properties = [
         comment:
           "Most peaceful stay ever! The river views and boat rides were incredible. Bhaskar is an amazing host!",
       },
+      {
+        id: "2",
+        user: "Rahul",
+        avatar:
+          "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?w=150",
+        date: "September 2023",
+        rating: 4,
+        comment:
+          "Great location and clean rooms. The food could have been a little better, but overall very pleasant.",
+      },
+      {
+        id: "3",
+        user: "Sophia",
+        avatar:
+          "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?w=150",
+        date: "July 2023",
+        rating: 5,
+        comment:
+          "Absolutely loved it! The place was spotless and the host was very friendly. Would definitely return!",
+      },
+      {
+        id: "4",
+        user: "Arjun",
+        avatar:
+          "https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?w=150",
+        date: "June 2023",
+        rating: 3,
+        comment:
+          "The stay was okay, but the Wi-Fi was unreliable. Great views though.",
+      },
+      {
+        id: "5",
+        user: "Emily",
+        avatar:
+          "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?w=150",
+        date: "May 2023",
+        rating: 5,
+        comment:
+          "A hidden gem! Quiet, cozy, and surrounded by nature. Perfect for a weekend escape.",
+      },
+      {
+        id: "6",
+        user: "Hasan",
+        avatar:
+          "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?w=150",
+        date: "April 2023",
+        rating: 4,
+        comment:
+          "Really nice host, comfortable bed, and great location. Breakfast could be more diverse.",
+      },
+      {
+        id: "7",
+        user: "Lara",
+        avatar:
+          "https://images.pexels.com/photos/1130626/pexels-photo-1130626.jpeg?w=150",
+        date: "March 2023",
+        rating: 5,
+        comment:
+          "Everything was perfect — from the interior design to the hospitality. Highly recommended!",
+      },
+      {
+        id: "8",
+        user: "Daniel",
+        avatar:
+          "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?w=150",
+        date: "February 2023",
+        rating: 4,
+        comment:
+          "Nice experience overall. The only issue was a bit of noise at night.",
+      },
+      {
+        id: "9",
+        user: "Maya",
+        avatar:
+          "https://images.pexels.com/photos/774095/pexels-photo-774095.jpeg?w=150",
+        date: "January 2023",
+        rating: 5,
+        comment:
+          "Stunning property! The river view was breathtaking and the service was excellent.",
+      },
+      {
+        id: "10",
+        user: "Omar",
+        avatar:
+          "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?w=150",
+        date: "December 2022",
+        rating: 4,
+        comment:
+          "Really good value for money. Would have been a 5-star if the check-in was faster.",
+      },
     ],
     coordinates: { lat: 26.1823, lng: 91.6789 },
     reservations: [
       {
         reservationId: "r12-1201",
         guestName: "Anand Mishra",
-        checkIn: "2023-08-05",
-        checkOut: "2023-08-09",
+        checkIn: "2025-08-05",
+        checkOut: "2025-08-09",
         status: "completed",
       },
       {
         reservationId: "r12-1202",
         guestName: "Kavita Jain",
-        checkIn: "2023-12-28",
-        checkOut: "2024-01-02",
+        checkIn: "2025-12-28",
+        checkOut: "2026-01-02",
         status: "upcoming",
       },
     ],
@@ -979,6 +1680,7 @@ export const properties = [
       "https://images.pexels.com/photos/1571470/pexels-photo-1571470.jpeg",
       "https://images.pexels.com/photos/1571471/pexels-photo-1571471.jpeg",
       "https://images.pexels.com/photos/1571472/pexels-photo-1571472.jpeg",
+      "https://images.pexels.com/photos/2029667/pexels-photo-2029667.jpeg",
       "https://images.pexels.com/photos/2029667/pexels-photo-2029667.jpeg",
     ],
     title: "Luxury Condo in Six Mile",
@@ -1056,15 +1758,15 @@ export const properties = [
       {
         reservationId: "r13-1301",
         guestName: "Raj Patel",
-        checkIn: "2023-09-12",
-        checkOut: "2023-09-16",
+        checkIn: "2025-09-12",
+        checkOut: "2025-09-16",
         status: "completed",
       },
       {
         reservationId: "r13-1302",
         guestName: "Simran Kaur",
-        checkIn: "2024-01-05",
-        checkOut: "2024-01-10",
+        checkIn: "2025-11-05",
+        checkOut: "2025-11-10",
         status: "upcoming",
       },
     ],
@@ -1075,6 +1777,7 @@ export const properties = [
       "https://images.pexels.com/photos/1457845/pexels-photo-1457845.jpeg",
       "https://images.pexels.com/photos/1457846/pexels-photo-1457846.jpeg",
       "https://images.pexels.com/photos/1457848/pexels-photo-1457848.jpeg",
+      "https://images.pexels.com/photos/2029667/pexels-photo-2029667.jpeg",
       "https://images.pexels.com/photos/2029667/pexels-photo-2029667.jpeg",
     ],
     title: "Family Home in Jalukbari",
@@ -1119,13 +1822,93 @@ export const properties = [
     reviews: [
       {
         id: "1",
-        user: "Rakesh",
+        user: "Tanya",
+        avatar:
+          "https://images.pexels.com/photos/1036623/pexels-photo-1036623.jpeg?w=150",
+        date: "August 2023",
+        rating: 5,
+        comment:
+          "Most peaceful stay ever! The river views and boat rides were incredible. Bhaskar is an amazing host!",
+      },
+      {
+        id: "2",
+        user: "Rahul",
         avatar:
           "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?w=150",
+        date: "September 2023",
+        rating: 4,
+        comment:
+          "Great location and clean rooms. The food could have been a little better, but overall very pleasant.",
+      },
+      {
+        id: "3",
+        user: "Sophia",
+        avatar:
+          "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?w=150",
         date: "July 2023",
         rating: 5,
         comment:
-          "Perfect for our family vacation! Kids loved the play area and the neighborhood is very safe and quiet.",
+          "Absolutely loved it! The place was spotless and the host was very friendly. Would definitely return!",
+      },
+      {
+        id: "4",
+        user: "Arjun",
+        avatar:
+          "https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?w=150",
+        date: "June 2023",
+        rating: 3,
+        comment:
+          "The stay was okay, but the Wi-Fi was unreliable. Great views though.",
+      },
+      {
+        id: "5",
+        user: "Emily",
+        avatar:
+          "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?w=150",
+        date: "May 2023",
+        rating: 5,
+        comment:
+          "A hidden gem! Quiet, cozy, and surrounded by nature. Perfect for a weekend escape.",
+      },
+      {
+        id: "6",
+        user: "Hasan",
+        avatar:
+          "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?w=150",
+        date: "April 2023",
+        rating: 4,
+        comment:
+          "Really nice host, comfortable bed, and great location. Breakfast could be more diverse.",
+      },
+      {
+        id: "7",
+        user: "Lara",
+        avatar:
+          "https://images.pexels.com/photos/1130626/pexels-photo-1130626.jpeg?w=150",
+        date: "March 2023",
+        rating: 5,
+        comment:
+          "Everything was perfect — from the interior design to the hospitality. Highly recommended!",
+      },
+      {
+        id: "8",
+        user: "Daniel",
+        avatar:
+          "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?w=150",
+        date: "February 2023",
+        rating: 4,
+        comment:
+          "Nice experience overall. The only issue was a bit of noise at night.",
+      },
+      {
+        id: "9",
+        user: "Maya",
+        avatar:
+          "https://images.pexels.com/photos/774095/pexels-photo-774095.jpeg?w=150",
+        date: "January 2023",
+        rating: 5,
+        comment:
+          "Stunning property! The river view was breathtaking and the service was excellent.",
       },
     ],
     coordinates: { lat: 26.1678, lng: 91.6845 },
@@ -1133,15 +1916,15 @@ export const properties = [
       {
         reservationId: "r14-1401",
         guestName: "Satish Kumar",
-        checkIn: "2023-07-10",
-        checkOut: "2023-07-14",
+        checkIn: "2025-07-10",
+        checkOut: "2025-07-14",
         status: "completed",
       },
       {
         reservationId: "r14-1402",
         guestName: "Meeta Singh",
-        checkIn: "2024-01-12",
-        checkOut: "2024-01-16",
+        checkIn: "2025-11-12",
+        checkOut: "2026-01-16",
         status: "upcoming",
       },
     ],
@@ -1152,6 +1935,7 @@ export const properties = [
       "https://images.pexels.com/photos/2251247/pexels-photo-2251247.jpeg",
       "https://images.pexels.com/photos/2251252/pexels-photo-2251252.jpeg",
       "https://images.pexels.com/photos/2251253/pexels-photo-2251253.jpeg",
+      "https://images.pexels.com/photos/2029667/pexels-photo-2029667.jpeg",
       "https://images.pexels.com/photos/2029667/pexels-photo-2029667.jpeg",
     ],
     title: "Boutique Apartment in Rukminigaon",
@@ -1196,13 +1980,83 @@ export const properties = [
     reviews: [
       {
         id: "1",
-        user: "Isha",
+        user: "Tanya",
         avatar:
           "https://images.pexels.com/photos/1036623/pexels-photo-1036623.jpeg?w=150",
         date: "August 2023",
         rating: 5,
         comment:
-          "Such a beautifully designed space! Every corner is Instagram worthy. Nandini has great taste in decor.",
+          "Most peaceful stay ever! The river views and boat rides were incredible. Bhaskar is an amazing host!",
+      },
+      {
+        id: "2",
+        user: "Rahul",
+        avatar:
+          "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?w=150",
+        date: "September 2023",
+        rating: 4,
+        comment:
+          "Great location and clean rooms. The food could have been a little better, but overall very pleasant.",
+      },
+      {
+        id: "3",
+        user: "Sophia",
+        avatar:
+          "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?w=150",
+        date: "July 2023",
+        rating: 5,
+        comment:
+          "Absolutely loved it! The place was spotless and the host was very friendly. Would definitely return!",
+      },
+      {
+        id: "4",
+        user: "Arjun",
+        avatar:
+          "https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?w=150",
+        date: "June 2023",
+        rating: 3,
+        comment:
+          "The stay was okay, but the Wi-Fi was unreliable. Great views though.",
+      },
+      {
+        id: "5",
+        user: "Emily",
+        avatar:
+          "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?w=150",
+        date: "May 2023",
+        rating: 5,
+        comment:
+          "A hidden gem! Quiet, cozy, and surrounded by nature. Perfect for a weekend escape.",
+      },
+      {
+        id: "6",
+        user: "Hasan",
+        avatar:
+          "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?w=150",
+        date: "April 2023",
+        rating: 4,
+        comment:
+          "Really nice host, comfortable bed, and great location. Breakfast could be more diverse.",
+      },
+      {
+        id: "7",
+        user: "Lara",
+        avatar:
+          "https://images.pexels.com/photos/1130626/pexels-photo-1130626.jpeg?w=150",
+        date: "March 2023",
+        rating: 5,
+        comment:
+          "Everything was perfect — from the interior design to the hospitality. Highly recommended!",
+      },
+      {
+        id: "8",
+        user: "Daniel",
+        avatar:
+          "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?w=150",
+        date: "February 2023",
+        rating: 4,
+        comment:
+          "Nice experience overall. The only issue was a bit of noise at night.",
       },
     ],
     coordinates: { lat: 26.1534, lng: 91.8012 },
@@ -1210,15 +2064,15 @@ export const properties = [
       {
         reservationId: "r15-1501",
         guestName: "Pranjal Das",
-        checkIn: "2023-08-18",
-        checkOut: "2023-08-21",
+        checkIn: "2025-08-18",
+        checkOut: "2025-08-21",
         status: "completed",
       },
       {
         reservationId: "r15-1502",
         guestName: "Tanvi Sharma",
-        checkIn: "2024-01-18",
-        checkOut: "2024-01-22",
+        checkIn: "2025-11-18",
+        checkOut: "2025-11-22",
         status: "upcoming",
       },
     ],
@@ -1229,6 +2083,7 @@ export const properties = [
       "https://images.pexels.com/photos/1648776/pexels-photo-1648776.jpeg",
       "https://images.pexels.com/photos/1648777/pexels-photo-1648777.jpeg",
       "https://images.pexels.com/photos/1648771/pexels-photo-1648771.jpeg",
+      "https://images.pexels.com/photos/2029667/pexels-photo-2029667.jpeg",
       "https://images.pexels.com/photos/2029667/pexels-photo-2029667.jpeg",
     ],
     title: "Hill View Bungalow in Narengi",
@@ -1299,15 +2154,15 @@ export const properties = [
       {
         reservationId: "r16-1601",
         guestName: "Ashok Reddy",
-        checkIn: "2023-09-20",
-        checkOut: "2023-09-24",
+        checkIn: "2025-09-13",
+        checkOut: "2025-09-24",
         status: "completed",
       },
       {
         reservationId: "r16-1602",
         guestName: "Geeta Nair",
-        checkIn: "2024-01-25",
-        checkOut: "2024-01-30",
+        checkIn: "2025-11-25",
+        checkOut: "2025-11-30",
         status: "upcoming",
       },
     ],
@@ -1318,6 +2173,7 @@ export const properties = [
       "https://images.pexels.com/photos/1080696/pexels-photo-1080696.jpeg",
       "https://images.pexels.com/photos/1080711/pexels-photo-1080711.jpeg",
       "https://images.pexels.com/photos/1080721/pexels-photo-1080721.jpeg",
+      "https://images.pexels.com/photos/2029667/pexels-photo-2029667.jpeg",
       "https://images.pexels.com/photos/2029667/pexels-photo-2029667.jpeg",
     ],
     title: "Modern Loft in Silpukhuri",
@@ -1363,13 +2219,83 @@ export const properties = [
     reviews: [
       {
         id: "1",
-        user: "Manish",
+        user: "Tanya",
+        avatar:
+          "https://images.pexels.com/photos/1036623/pexels-photo-1036623.jpeg?w=150",
+        date: "August 2023",
+        rating: 5,
+        comment:
+          "Most peaceful stay ever! The river views and boat rides were incredible. Bhaskar is an amazing host!",
+      },
+      {
+        id: "2",
+        user: "Rahul",
         avatar:
           "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?w=150",
+        date: "September 2023",
+        rating: 4,
+        comment:
+          "Great location and clean rooms. The food could have been a little better, but overall very pleasant.",
+      },
+      {
+        id: "3",
+        user: "Sophia",
+        avatar:
+          "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?w=150",
         date: "July 2023",
         rating: 5,
         comment:
-          "Love the loft design! Very spacious and modern. Great location in Silpukhuri with easy access to everything.",
+          "Absolutely loved it! The place was spotless and the host was very friendly. Would definitely return!",
+      },
+      {
+        id: "4",
+        user: "Arjun",
+        avatar:
+          "https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?w=150",
+        date: "June 2023",
+        rating: 3,
+        comment:
+          "The stay was okay, but the Wi-Fi was unreliable. Great views though.",
+      },
+      {
+        id: "5",
+        user: "Emily",
+        avatar:
+          "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?w=150",
+        date: "May 2023",
+        rating: 5,
+        comment:
+          "A hidden gem! Quiet, cozy, and surrounded by nature. Perfect for a weekend escape.",
+      },
+      {
+        id: "6",
+        user: "Hasan",
+        avatar:
+          "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?w=150",
+        date: "April 2023",
+        rating: 4,
+        comment:
+          "Really nice host, comfortable bed, and great location. Breakfast could be more diverse.",
+      },
+      {
+        id: "7",
+        user: "Lara",
+        avatar:
+          "https://images.pexels.com/photos/1130626/pexels-photo-1130626.jpeg?w=150",
+        date: "March 2023",
+        rating: 5,
+        comment:
+          "Everything was perfect — from the interior design to the hospitality. Highly recommended!",
+      },
+      {
+        id: "8",
+        user: "Daniel",
+        avatar:
+          "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?w=150",
+        date: "February 2023",
+        rating: 4,
+        comment:
+          "Nice experience overall. The only issue was a bit of noise at night.",
       },
     ],
     coordinates: {
@@ -1380,15 +2306,15 @@ export const properties = [
       {
         reservationId: "r17-1701",
         guestName: "Rohit Gupta",
-        checkIn: "2023-07-25",
-        checkOut: "2023-07-28",
+        checkIn: "2025-07-25",
+        checkOut: "2025-07-28",
         status: "completed",
       },
       {
         reservationId: "r17-1702",
         guestName: "Shilpa Joshi",
-        checkIn: "2024-02-01",
-        checkOut: "2024-02-05",
+        checkIn: "2026-02-01",
+        checkOut: "2026-02-05",
         status: "upcoming",
       },
     ],
@@ -1399,6 +2325,7 @@ export const properties = [
       "https://images.pexels.com/photos/1396132/pexels-photo-1396132.jpeg",
       "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg",
       "https://images.pexels.com/photos/1396125/pexels-photo-1396125.jpeg",
+      "https://images.pexels.com/photos/2029667/pexels-photo-2029667.jpeg",
       "https://images.pexels.com/photos/2029667/pexels-photo-2029667.jpeg",
     ],
     title: "Executive Suite in Paltan Bazar",
@@ -1449,13 +2376,103 @@ export const properties = [
     reviews: [
       {
         id: "1",
-        user: "Sandeep",
+        user: "Tanya",
         avatar:
-          "https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?w=150",
+          "https://images.pexels.com/photos/1036623/pexels-photo-1036623.jpeg?w=150",
         date: "August 2023",
         rating: 5,
         comment:
-          "Perfect for business trips! The workspace and meeting room facilities are excellent. Ramesh provides top-notch service.",
+          "Most peaceful stay ever! The river views and boat rides were incredible. Bhaskar is an amazing host!",
+      },
+      {
+        id: "2",
+        user: "Rahul",
+        avatar:
+          "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?w=150",
+        date: "September 2023",
+        rating: 4,
+        comment:
+          "Great location and clean rooms. The food could have been a little better, but overall very pleasant.",
+      },
+      {
+        id: "3",
+        user: "Sophia",
+        avatar:
+          "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?w=150",
+        date: "July 2023",
+        rating: 5,
+        comment:
+          "Absolutely loved it! The place was spotless and the host was very friendly. Would definitely return!",
+      },
+      {
+        id: "4",
+        user: "Arjun",
+        avatar:
+          "https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?w=150",
+        date: "June 2023",
+        rating: 3,
+        comment:
+          "The stay was okay, but the Wi-Fi was unreliable. Great views though.",
+      },
+      {
+        id: "5",
+        user: "Emily",
+        avatar:
+          "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?w=150",
+        date: "May 2023",
+        rating: 5,
+        comment:
+          "A hidden gem! Quiet, cozy, and surrounded by nature. Perfect for a weekend escape.",
+      },
+      {
+        id: "6",
+        user: "Hasan",
+        avatar:
+          "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?w=150",
+        date: "April 2023",
+        rating: 4,
+        comment:
+          "Really nice host, comfortable bed, and great location. Breakfast could be more diverse.",
+      },
+      {
+        id: "7",
+        user: "Lara",
+        avatar:
+          "https://images.pexels.com/photos/1130626/pexels-photo-1130626.jpeg?w=150",
+        date: "March 2023",
+        rating: 5,
+        comment:
+          "Everything was perfect — from the interior design to the hospitality. Highly recommended!",
+      },
+      {
+        id: "8",
+        user: "Daniel",
+        avatar:
+          "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?w=150",
+        date: "February 2023",
+        rating: 4,
+        comment:
+          "Nice experience overall. The only issue was a bit of noise at night.",
+      },
+      {
+        id: "9",
+        user: "Maya",
+        avatar:
+          "https://images.pexels.com/photos/774095/pexels-photo-774095.jpeg?w=150",
+        date: "January 2023",
+        rating: 5,
+        comment:
+          "Stunning property! The river view was breathtaking and the service was excellent.",
+      },
+      {
+        id: "10",
+        user: "Omar",
+        avatar:
+          "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?w=150",
+        date: "December 2022",
+        rating: 4,
+        comment:
+          "Really good value for money. Would have been a 5-star if the check-in was faster.",
       },
     ],
     coordinates: {
@@ -1466,15 +2483,15 @@ export const properties = [
       {
         reservationId: "r18-1801",
         guestName: "Kumar Patel",
-        checkIn: "2023-08-08",
-        checkOut: "2023-08-12",
+        checkIn: "2025-08-08",
+        checkOut: "2025-08-12",
         status: "completed",
       },
       {
         reservationId: "r18-1802",
         guestName: "Rajni Mehta",
-        checkIn: "2024-02-08",
-        checkOut: "2024-02-12",
+        checkIn: "2025-08-07",
+        checkOut: "2025-08-12",
         status: "upcoming",
       },
     ],
@@ -1485,6 +2502,7 @@ export const properties = [
       "https://images.pexels.com/photos/1329711/pexels-photo-1329711.jpeg",
       "https://images.pexels.com/photos/1329559/pexels-photo-1329559.jpeg",
       "https://images.pexels.com/photos/1329715/pexels-photo-1329715.jpeg",
+      "https://images.pexels.com/photos/2029667/pexels-photo-2029667.jpeg",
       "https://images.pexels.com/photos/2029667/pexels-photo-2029667.jpeg",
     ],
     title: "Eco-Friendly Home in Beltola",
@@ -1529,13 +2547,103 @@ export const properties = [
     reviews: [
       {
         id: "1",
-        user: "Ravi",
+        user: "Tanya",
         avatar:
-          "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?w=150",
-        date: "June 2023",
+          "https://images.pexels.com/photos/1036623/pexels-photo-1036623.jpeg?w=150",
+        date: "August 2023",
         rating: 5,
         comment:
-          "Amazing eco-friendly experience! Learned so much about sustainable living. The organic garden vegetables were delicious!",
+          "Most peaceful stay ever! The river views and boat rides were incredible. Bhaskar is an amazing host!",
+      },
+      {
+        id: "2",
+        user: "Rahul",
+        avatar:
+          "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?w=150",
+        date: "September 2023",
+        rating: 4,
+        comment:
+          "Great location and clean rooms. The food could have been a little better, but overall very pleasant.",
+      },
+      {
+        id: "3",
+        user: "Sophia",
+        avatar:
+          "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?w=150",
+        date: "July 2023",
+        rating: 5,
+        comment:
+          "Absolutely loved it! The place was spotless and the host was very friendly. Would definitely return!",
+      },
+      {
+        id: "4",
+        user: "Arjun",
+        avatar:
+          "https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?w=150",
+        date: "June 2023",
+        rating: 3,
+        comment:
+          "The stay was okay, but the Wi-Fi was unreliable. Great views though.",
+      },
+      {
+        id: "5",
+        user: "Emily",
+        avatar:
+          "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?w=150",
+        date: "May 2023",
+        rating: 5,
+        comment:
+          "A hidden gem! Quiet, cozy, and surrounded by nature. Perfect for a weekend escape.",
+      },
+      {
+        id: "6",
+        user: "Hasan",
+        avatar:
+          "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?w=150",
+        date: "April 2023",
+        rating: 4,
+        comment:
+          "Really nice host, comfortable bed, and great location. Breakfast could be more diverse.",
+      },
+      {
+        id: "7",
+        user: "Lara",
+        avatar:
+          "https://images.pexels.com/photos/1130626/pexels-photo-1130626.jpeg?w=150",
+        date: "March 2023",
+        rating: 5,
+        comment:
+          "Everything was perfect — from the interior design to the hospitality. Highly recommended!",
+      },
+      {
+        id: "8",
+        user: "Daniel",
+        avatar:
+          "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?w=150",
+        date: "February 2023",
+        rating: 4,
+        comment:
+          "Nice experience overall. The only issue was a bit of noise at night.",
+      },
+      {
+        id: "9",
+        user: "Maya",
+        avatar:
+          "https://images.pexels.com/photos/774095/pexels-photo-774095.jpeg?w=150",
+        date: "January 2023",
+        rating: 5,
+        comment:
+          "Stunning property! The river view was breathtaking and the service was excellent.",
+      },
+      {
+        id: "10",
+        user: "Omar",
+        avatar:
+          "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?w=150",
+        date: "December 2022",
+        rating: 4,
+        comment:
+          "Really good value for money. Would have been a 5-star if the check-in was faster.",
       },
     ],
     coordinates: {
@@ -1546,15 +2654,15 @@ export const properties = [
       {
         reservationId: "r19-1901",
         guestName: "Eco Warriors Group",
-        checkIn: "2023-06-20",
-        checkOut: "2023-06-24",
+        checkIn: "2025-06-20",
+        checkOut: "2025-06-24",
         status: "completed",
       },
       {
         reservationId: "r19-1902",
         guestName: "Nature Lovers Club",
-        checkIn: "2024-02-15",
-        checkOut: "2024-02-19",
+        checkIn: "2026-02-15",
+        checkOut: "2026-02-19",
         status: "upcoming",
       },
     ],
@@ -1565,6 +2673,7 @@ export const properties = [
       "https://images.pexels.com/photos/2121121/pexels-photo-2121121.jpeg",
       "https://images.pexels.com/photos/2121120/pexels-photo-2121120.jpeg",
       "https://images.pexels.com/photos/2121119/pexels-photo-2121119.jpeg",
+      "https://images.pexels.com/photos/2029667/pexels-photo-2029667.jpeg",
       "https://images.pexels.com/photos/2029667/pexels-photo-2029667.jpeg",
     ],
     title: "Riverside Retreat in Khanapara",
@@ -1610,13 +2719,83 @@ export const properties = [
     reviews: [
       {
         id: "1",
-        user: "Adventure Group",
+        user: "Tanya",
         avatar:
-          "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?w=150",
+          "https://images.pexels.com/photos/1036623/pexels-photo-1036623.jpeg?w=150",
+        date: "August 2023",
+        rating: 5,
+        comment:
+          "Most peaceful stay ever! The river views and boat rides were incredible. Bhaskar is an amazing host!",
+      },
+      {
+        id: "2",
+        user: "Rahul",
+        avatar:
+          "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?w=150",
+        date: "September 2023",
+        rating: 4,
+        comment:
+          "Great location and clean rooms. The food could have been a little better, but overall very pleasant.",
+      },
+      {
+        id: "3",
+        user: "Sophia",
+        avatar:
+          "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?w=150",
         date: "July 2023",
         rating: 5,
         comment:
-          "Best riverside experience! The boat dock and fishing were amazing. Dilip arranged great river activities for our group.",
+          "Absolutely loved it! The place was spotless and the host was very friendly. Would definitely return!",
+      },
+      {
+        id: "4",
+        user: "Arjun",
+        avatar:
+          "https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?w=150",
+        date: "June 2023",
+        rating: 3,
+        comment:
+          "The stay was okay, but the Wi-Fi was unreliable. Great views though.",
+      },
+      {
+        id: "5",
+        user: "Emily",
+        avatar:
+          "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?w=150",
+        date: "May 2023",
+        rating: 5,
+        comment:
+          "A hidden gem! Quiet, cozy, and surrounded by nature. Perfect for a weekend escape.",
+      },
+      {
+        id: "6",
+        user: "Hasan",
+        avatar:
+          "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?w=150",
+        date: "April 2023",
+        rating: 4,
+        comment:
+          "Really nice host, comfortable bed, and great location. Breakfast could be more diverse.",
+      },
+      {
+        id: "7",
+        user: "Lara",
+        avatar:
+          "https://images.pexels.com/photos/1130626/pexels-photo-1130626.jpeg?w=150",
+        date: "March 2023",
+        rating: 5,
+        comment:
+          "Everything was perfect — from the interior design to the hospitality. Highly recommended!",
+      },
+      {
+        id: "8",
+        user: "Daniel",
+        avatar:
+          "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?w=150",
+        date: "February 2023",
+        rating: 4,
+        comment:
+          "Nice experience overall. The only issue was a bit of noise at night.",
       },
     ],
     coordinates: {
@@ -1627,15 +2806,15 @@ export const properties = [
       {
         reservationId: "r20-2001",
         guestName: "Water Sports Team",
-        checkIn: "2023-07-12",
-        checkOut: "2023-07-16",
+        checkIn: "2025-07-11",
+        checkOut: "2025-07-16",
         status: "completed",
       },
       {
         reservationId: "r20-2002",
         guestName: "River Expedition",
-        checkIn: "2024-02-22",
-        checkOut: "2024-02-26",
+        checkIn: "2026-02-12",
+        checkOut: "2026-02-26",
         status: "upcoming",
       },
     ],
@@ -1645,6 +2824,7 @@ export const properties = [
     images: [
       "https://images.pexels.com/photos/2251247/pexels-photo-2251247.jpeg",
       "https://images.pexels.com/photos/2251252/pexels-photo-2251252.jpeg",
+      "https://images.pexels.com/photos/2251253/pexels-photo-2251253.jpeg",
       "https://images.pexels.com/photos/2251253/pexels-photo-2251253.jpeg",
       "https://images.pexels.com/photos/2029667/pexels-photo-2029667.jpeg",
     ],
@@ -1690,13 +2870,93 @@ export const properties = [
     reviews: [
       {
         id: "1",
-        user: "Maya",
+        user: "Tanya",
         avatar:
           "https://images.pexels.com/photos/1036623/pexels-photo-1036623.jpeg?w=150",
         date: "August 2023",
         rating: 5,
         comment:
-          "Perfect creative space! The natural light is amazing and Kabir provided excellent art supplies. So inspiring!",
+          "Most peaceful stay ever! The river views and boat rides were incredible. Bhaskar is an amazing host!",
+      },
+      {
+        id: "2",
+        user: "Rahul",
+        avatar:
+          "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?w=150",
+        date: "September 2023",
+        rating: 4,
+        comment:
+          "Great location and clean rooms. The food could have been a little better, but overall very pleasant.",
+      },
+      {
+        id: "3",
+        user: "Sophia",
+        avatar:
+          "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?w=150",
+        date: "July 2023",
+        rating: 5,
+        comment:
+          "Absolutely loved it! The place was spotless and the host was very friendly. Would definitely return!",
+      },
+      {
+        id: "4",
+        user: "Arjun",
+        avatar:
+          "https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?w=150",
+        date: "June 2023",
+        rating: 3,
+        comment:
+          "The stay was okay, but the Wi-Fi was unreliable. Great views though.",
+      },
+      {
+        id: "5",
+        user: "Emily",
+        avatar:
+          "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?w=150",
+        date: "May 2023",
+        rating: 5,
+        comment:
+          "A hidden gem! Quiet, cozy, and surrounded by nature. Perfect for a weekend escape.",
+      },
+      {
+        id: "6",
+        user: "Hasan",
+        avatar:
+          "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?w=150",
+        date: "April 2023",
+        rating: 4,
+        comment:
+          "Really nice host, comfortable bed, and great location. Breakfast could be more diverse.",
+      },
+      {
+        id: "7",
+        user: "Lara",
+        avatar:
+          "https://images.pexels.com/photos/1130626/pexels-photo-1130626.jpeg?w=150",
+        date: "March 2023",
+        rating: 5,
+        comment:
+          "Everything was perfect — from the interior design to the hospitality. Highly recommended!",
+      },
+      {
+        id: "8",
+        user: "Daniel",
+        avatar:
+          "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?w=150",
+        date: "February 2023",
+        rating: 4,
+        comment:
+          "Nice experience overall. The only issue was a bit of noise at night.",
+      },
+      {
+        id: "9",
+        user: "Maya",
+        avatar:
+          "https://images.pexels.com/photos/774095/pexels-photo-774095.jpeg?w=150",
+        date: "January 2023",
+        rating: 5,
+        comment:
+          "Stunning property! The river view was breathtaking and the service was excellent.",
       },
     ],
     coordinates: {
@@ -1707,15 +2967,15 @@ export const properties = [
       {
         reservationId: "r21-2101",
         guestName: "Artist Collective",
-        checkIn: "2023-08-14",
-        checkOut: "2023-08-18",
+        checkIn: "2025-08-14",
+        checkOut: "2025-08-18",
         status: "completed",
       },
       {
         reservationId: "r21-2102",
         guestName: "Creative Writers",
-        checkIn: "2024-03-01",
-        checkOut: "2024-03-05",
+        checkIn: "2026-03-01",
+        checkOut: "2026-03-05",
         status: "upcoming",
       },
     ],
@@ -1726,6 +2986,7 @@ export const properties = [
       "https://images.pexels.com/photos/1643389/pexels-photo-1643389.jpeg",
       "https://images.pexels.com/photos/1643388/pexels-photo-1643388.jpeg",
       "https://images.pexels.com/photos/1643387/pexels-photo-1643387.jpeg",
+      "https://images.pexels.com/photos/2029667/pexels-photo-2029667.jpeg",
       "https://images.pexels.com/photos/2029667/pexels-photo-2029667.jpeg",
     ],
     title: "Wellness Retreat in Dispur",
@@ -1770,13 +3031,83 @@ export const properties = [
     reviews: [
       {
         id: "1",
-        user: "Wellness Seeker",
+        user: "Tanya",
         avatar:
-          "https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?w=150",
-        date: "September 2023",
+          "https://images.pexels.com/photos/1036623/pexels-photo-1036623.jpeg?w=150",
+        date: "August 2023",
         rating: 5,
         comment:
-          "Transformative experience! The yoga sessions and spa treatments were incredible. Dr. Sharma is very knowledgeable.",
+          "Most peaceful stay ever! The river views and boat rides were incredible. Bhaskar is an amazing host!",
+      },
+      {
+        id: "2",
+        user: "Rahul",
+        avatar:
+          "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?w=150",
+        date: "September 2023",
+        rating: 4,
+        comment:
+          "Great location and clean rooms. The food could have been a little better, but overall very pleasant.",
+      },
+      {
+        id: "3",
+        user: "Sophia",
+        avatar:
+          "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?w=150",
+        date: "July 2023",
+        rating: 5,
+        comment:
+          "Absolutely loved it! The place was spotless and the host was very friendly. Would definitely return!",
+      },
+      {
+        id: "4",
+        user: "Arjun",
+        avatar:
+          "https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?w=150",
+        date: "June 2023",
+        rating: 3,
+        comment:
+          "The stay was okay, but the Wi-Fi was unreliable. Great views though.",
+      },
+      {
+        id: "5",
+        user: "Emily",
+        avatar:
+          "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?w=150",
+        date: "May 2023",
+        rating: 5,
+        comment:
+          "A hidden gem! Quiet, cozy, and surrounded by nature. Perfect for a weekend escape.",
+      },
+      {
+        id: "6",
+        user: "Hasan",
+        avatar:
+          "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?w=150",
+        date: "April 2023",
+        rating: 4,
+        comment:
+          "Really nice host, comfortable bed, and great location. Breakfast could be more diverse.",
+      },
+      {
+        id: "7",
+        user: "Lara",
+        avatar:
+          "https://images.pexels.com/photos/1130626/pexels-photo-1130626.jpeg?w=150",
+        date: "March 2023",
+        rating: 5,
+        comment:
+          "Everything was perfect — from the interior design to the hospitality. Highly recommended!",
+      },
+      {
+        id: "8",
+        user: "Daniel",
+        avatar:
+          "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?w=150",
+        date: "February 2023",
+        rating: 4,
+        comment:
+          "Nice experience overall. The only issue was a bit of noise at night.",
       },
     ],
     coordinates: {
@@ -1787,15 +3118,15 @@ export const properties = [
       {
         reservationId: "r22-2201",
         guestName: "Wellness Group",
-        checkIn: "2023-09-18",
-        checkOut: "2023-09-22",
+        checkIn: "2025-09-14",
+        checkOut: "2025-09-22",
         status: "completed",
       },
       {
         reservationId: "r22-2202",
         guestName: "Meditation Retreat",
-        checkIn: "2024-03-08",
-        checkOut: "2024-03-12",
+        checkIn: "2026-03-03",
+        checkOut: "2026-03-12",
         status: "upcoming",
       },
     ],
@@ -1806,6 +3137,7 @@ export const properties = [
       "https://images.pexels.com/photos/1571457/pexels-photo-1571457.jpeg",
       "https://images.pexels.com/photos/1571458/pexels-photo-1571458.jpeg",
       "https://images.pexels.com/photos/1571459/pexels-photo-1571459.jpeg",
+      "https://images.pexels.com/photos/2029667/pexels-photo-2029667.jpeg",
       "https://images.pexels.com/photos/2029667/pexels-photo-2029667.jpeg",
     ],
     title: "Tech Hub Apartment in Geetanagar",
@@ -1851,13 +3183,93 @@ export const properties = [
     reviews: [
       {
         id: "1",
-        user: "Digital Nomad",
+        user: "Tanya",
         avatar:
-          "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?w=150",
+          "https://images.pexels.com/photos/1036623/pexels-photo-1036623.jpeg?w=150",
         date: "August 2023",
         rating: 5,
         comment:
-          "Perfect for remote work! The tech setup is amazing and the internet speed is incredible. Raj is very tech-savvy!",
+          "Most peaceful stay ever! The river views and boat rides were incredible. Bhaskar is an amazing host!",
+      },
+      {
+        id: "2",
+        user: "Rahul",
+        avatar:
+          "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?w=150",
+        date: "September 2023",
+        rating: 4,
+        comment:
+          "Great location and clean rooms. The food could have been a little better, but overall very pleasant.",
+      },
+      {
+        id: "3",
+        user: "Sophia",
+        avatar:
+          "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?w=150",
+        date: "July 2023",
+        rating: 5,
+        comment:
+          "Absolutely loved it! The place was spotless and the host was very friendly. Would definitely return!",
+      },
+      {
+        id: "4",
+        user: "Arjun",
+        avatar:
+          "https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?w=150",
+        date: "June 2023",
+        rating: 3,
+        comment:
+          "The stay was okay, but the Wi-Fi was unreliable. Great views though.",
+      },
+      {
+        id: "5",
+        user: "Emily",
+        avatar:
+          "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?w=150",
+        date: "May 2023",
+        rating: 5,
+        comment:
+          "A hidden gem! Quiet, cozy, and surrounded by nature. Perfect for a weekend escape.",
+      },
+      {
+        id: "6",
+        user: "Hasan",
+        avatar:
+          "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?w=150",
+        date: "April 2023",
+        rating: 4,
+        comment:
+          "Really nice host, comfortable bed, and great location. Breakfast could be more diverse.",
+      },
+      {
+        id: "7",
+        user: "Lara",
+        avatar:
+          "https://images.pexels.com/photos/1130626/pexels-photo-1130626.jpeg?w=150",
+        date: "March 2023",
+        rating: 5,
+        comment:
+          "Everything was perfect — from the interior design to the hospitality. Highly recommended!",
+      },
+      {
+        id: "8",
+        user: "Daniel",
+        avatar:
+          "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?w=150",
+        date: "February 2023",
+        rating: 4,
+        comment:
+          "Nice experience overall. The only issue was a bit of noise at night.",
+      },
+      {
+        id: "9",
+        user: "Maya",
+        avatar:
+          "https://images.pexels.com/photos/774095/pexels-photo-774095.jpeg?w=150",
+        date: "January 2023",
+        rating: 5,
+        comment:
+          "Stunning property! The river view was breathtaking and the service was excellent.",
       },
     ],
     coordinates: {
@@ -1868,15 +3280,15 @@ export const properties = [
       {
         reservationId: "r23-2301",
         guestName: "Tech Conference Group",
-        checkIn: "2023-08-28",
-        checkOut: "2023-09-01",
+        checkIn: "2025-08-28",
+        checkOut: "2025-09-01",
         status: "completed",
       },
       {
         reservationId: "r23-2302",
         guestName: "Startup Team",
-        checkIn: "2024-03-15",
-        checkOut: "2024-03-19",
+        checkIn: "2026-03-15",
+        checkOut: "2026-03-19",
         status: "upcoming",
       },
     ],
@@ -1887,6 +3299,7 @@ export const properties = [
       "https://images.pexels.com/photos/1648771/pexels-photo-1648771.jpeg",
       "https://images.pexels.com/photos/1648776/pexels-photo-1648776.jpeg",
       "https://images.pexels.com/photos/1648777/pexels-photo-1648777.jpeg",
+      "https://images.pexels.com/photos/2029667/pexels-photo-2029667.jpeg",
       "https://images.pexels.com/photos/2029667/pexels-photo-2029667.jpeg",
     ],
     title: "Cultural Heritage Home in Kamakhya",
@@ -1964,15 +3377,15 @@ export const properties = [
       {
         reservationId: "r24-2401",
         guestName: "Pilgrimage Group",
-        checkIn: "2023-09-25",
-        checkOut: "2023-09-29",
+        checkIn: "2025-09-25",
+        checkOut: "2025-09-29",
         status: "completed",
       },
       {
         reservationId: "r24-2402",
         guestName: "Cultural Study Group",
-        checkIn: "2024-03-22",
-        checkOut: "2024-03-26",
+        checkIn: "2025-12-22",
+        checkOut: "2026-01-26",
         status: "upcoming",
       },
     ],

@@ -7,7 +7,7 @@ const PropertyCard = ({ property }) => {
   const [isLiked, setIsLiked] = React.useState(false);
 
   return (
-    <Link to={`/property/${property.id}`} className="group block">
+    <Link to={`/property/${property._id}`} className="group block">
       <div className="relative md:w-full">
         {/* Image carousel */}
         <div className="relative aspect-square rounded-xl overflow-hidden mb-3">

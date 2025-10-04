@@ -29,7 +29,6 @@ import {
   Map,
   Music,
 } from "lucide-react";
-import { properties } from "../data/properties";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import L from "leaflet";
 import DatePicker from "react-datepicker";
@@ -39,6 +38,8 @@ import useMediaQuery from "../hooks/useMediaQuery";
 import MobileReview from "../components/MobileReview";
 import CalendarModal from "../components/CalendarModal";
 import { getDisabledDates } from "../utils/reserved";
+import { useQuery } from "@tanstack/react-query";
+import { fetchSingleProperty } from "../api/properties";
 
 delete L.Icon.Default.prototype._getIconUrl;
 L.Icon.Default.mergeOptions({
@@ -52,7 +53,7 @@ L.Icon.Default.mergeOptions({
 
 const PropertyDetails = () => {
   const { id } = useParams();
-  const property = properties.find((p) => p.id === id);
+
   const [isLiked, setIsLiked] = useState(false);
   const [checkIn, setCheckIn] = useState("");
   const [checkOut, setCheckOut] = useState("");
@@ -70,6 +71,17 @@ const PropertyDetails = () => {
   });
   const guestDropdownRef = useRef(null);
   const isLarge = useMediaQuery("(min-width: 1024px)");
+
+  const {
+    data: property,
+    isLoading,
+    isError,
+    error,
+  } = useQuery({
+    queryKey: ["property", id],
+    queryFn: () => fetchSingleProperty(id),
+    enabled: !!id,
+  });
 
   // Close dropdown on outside click
   useEffect(() => {
@@ -98,7 +110,7 @@ const PropertyDetails = () => {
     });
   };
 
-  const reservedDates = getDisabledDates(property.reservations);
+  const reservedDates = getDisabledDates(property?.reservations);
 
   const totalGuests = () => {
     const total = guestCounts.adults + guestCounts.children;
@@ -106,21 +118,6 @@ const PropertyDetails = () => {
     if (total === 1) return "1 guest";
     return `${total} guests`;
   };
-
-  if (!property) {
-    return (
-      <div className="max-w-7xl mx-auto px-4 py-8">
-        <div className="text-center">
-          <h1 className="text-2xl font-bold text-gray-900 mb-4">
-            Property not found
-          </h1>
-          <Link to="/" className="text-blue-600 hover:text-blue-700">
-            Return to home
-          </Link>
-        </div>
-      </div>
-    );
-  }
 
   const amenityIcons = {
     Wifi: <Wifi size={24} />,
@@ -144,15 +141,70 @@ const PropertyDetails = () => {
     return 0;
   };
 
-  const totalPrice = calculateNights() * property.price;
+  const totalPrice = calculateNights() * property?.price;
   const serviceFee = Math.round(totalPrice * 0.14);
   const cleaningFee = 25;
   const finalTotal = totalPrice + serviceFee + cleaningFee;
 
   //console.log(open);
 
+  if (isLoading)
+    return (
+      <div className="p-6 space-y-6 animate-pulse max-w-6xl mx-auto">
+        {/* Title */}
+        <div className="h-6 w-2/3 hidden md:block bg-gray-300 rounded"></div>
+        <div className="h-4 w-1/3 hidden md:block bg-gray-200 rounded"></div>
+
+        {/* Main image and side images */}
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
+          {/* Big left image */}
+          <div className="col-span-2 row-span-2 h-72 bg-gray-200 rounded-xl"></div>
+          {/* Small right images */}
+          <div className="h-36 bg-gray-200 rounded-xl"></div>
+          <div className="h-36 bg-gray-200 rounded-xl"></div>
+          <div className="h-36 bg-gray-200 rounded-xl"></div>
+          <div className="h-36 bg-gray-200 rounded-xl"></div>
+        </div>
+
+        {/* Info section */}
+        <div className="flex flex-col md:flex-row md:justify-between gap-6">
+          <div className="flex-1 space-y-3">
+            <div className="h-4 w-2/3 bg-gray-200 rounded"></div>
+            <div className="h-4 w-1/2 bg-gray-200 rounded"></div>
+            <div className="h-4 w-1/3 bg-gray-200 rounded"></div>
+          </div>
+
+          {/* Booking card skeleton */}
+          <div className="w-full md:w-72 h-64 border rounded-xl p-4 space-y-4">
+            <div className="h-5 w-1/2 bg-gray-200 rounded"></div>
+            <div className="h-10 w-full bg-gray-200 rounded"></div>
+            <div className="h-10 w-full bg-gray-200 rounded"></div>
+            <div className="h-10 w-full bg-gray-200 rounded"></div>
+            <div className="h-12 w-full bg-gray-300 rounded-lg"></div>
+          </div>
+        </div>
+      </div>
+    );
+
+  if (isError) return <p>Error: {error.message}</p>;
+
+  if (!property) {
+    return (
+      <div className="max-w-7xl mx-auto px-4 py-8">
+        <div className="text-center">
+          <h1 className="text-2xl font-bold text-gray-900 mb-4">
+            Property not found
+          </h1>
+          <Link to="/" className="text-blue-600 hover:text-blue-700">
+            Return to home
+          </Link>
+        </div>
+      </div>
+    );
+  }
+
   return (
-    <div className="max-w-7xl mx-auto sm:px-6 lg:px-8 md:py-8">
+    <div className="max-w-6xl mx-auto sm:px-6 lg:px-8 md:py-8">
       <div className="fixed bottom-0 right-0 left-0 bg-white flex md:hidden justify-between items-center p-4 border border-gray-300 z-40">
         <div>
           {totalPrice > 0 && <p className="text-xl font-bold">${totalPrice}</p>}
@@ -261,7 +313,7 @@ const PropertyDetails = () => {
         </div>
 
         {/* Desktop (grid layout) */}
-        <div className="hidden md:grid grid-cols-4 gap-2 rounded-xl overflow-hidden h-96 relative">
+        <div className="hidden md:grid grid-cols-4 gap-2 rounded-xl overflow-hidden h-[430px] lg:h-[500px] relative">
           <div className="col-span-2 row-span-2">
             <img
               src={property.images[0]}
@@ -352,9 +404,9 @@ const PropertyDetails = () => {
             <h3 className="text-xl font-semibold mb-6">Where you'll sleep</h3>
             <div className="border border-gray-200 rounded-lg p-6">
               <img
-                src={property.images[1]}
+                src={property.images[0]}
                 alt="Bedroom"
-                className="w-full h-48 object-cover rounded-lg mb-4"
+                className="w-full h-52 object-cover rounded-lg mb-4"
               />
               <h4 className="font-semibold mb-2">Bedroom</h4>
               <p className="text-gray-600">1 queen bed</p>
@@ -412,7 +464,7 @@ const PropertyDetails = () => {
               calendarClassName="custom-calendar"
               excludeDates={reservedDates}
               dayClassName={(date) =>
-                reservedDates.some(
+                reservedDates?.some(
                   (d) => d.toDateString() === date.toDateString()
                 )
                   ? "line-through text-gray-400 cursor-not-allowed"
@@ -567,7 +619,7 @@ const PropertyDetails = () => {
                         calendarClassName="custom-calendar2"
                         excludeDates={reservedDates}
                         dayClassName={(date) =>
-                          reservedDates.some(
+                          reservedDates?.some(
                             (d) => d.toDateString() === date.toDateString()
                           )
                             ? "line-through text-gray-400 cursor-not-allowed"

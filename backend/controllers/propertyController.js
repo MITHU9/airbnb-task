@@ -27,6 +27,19 @@ const getProperties = async (req, res) => {
   }
 };
 
+const getProperty = async (req, res) => {
+  try {
+    const property = await Property.findById(req.params.id);
+    if (!property) {
+      return res.status(404).json({ message: "Property not found" });
+    }
+    res.json(property);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
+};
+
 const getLocations = async (req, res) => {
   try {
     const locations = await Property.distinct("location");
@@ -82,4 +95,4 @@ const searchProperties = async (req, res) => {
   }
 };
 
-export { getProperties, getLocations, searchProperties };
+export { getProperties, getLocations, searchProperties, getProperty };

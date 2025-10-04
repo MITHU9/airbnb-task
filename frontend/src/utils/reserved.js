@@ -1,6 +1,6 @@
 export const getDisabledDates = (reservations) => {
   const dates = [];
-  reservations.forEach((res) => {
+  reservations?.forEach((res) => {
     const start = new Date(res.checkIn);
     const end = new Date(res.checkOut);
     const current = new Date(start);
