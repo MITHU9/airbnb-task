@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Search, Menu, User, Globe } from "lucide-react";
 import SearchBar from "./SearchBar";
@@ -8,11 +8,24 @@ const Header = ({ setFilters }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeField, setActiveField] = useState(null);
   const [showGuestDropdown, setShowGuestDropdown] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
 
   const isPropertyDetailsPage = location.pathname.startsWith("/property/");
 
-  console.log(isOpen);
+  // ✅ Scroll listener
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <header
@@ -34,10 +47,10 @@ const Header = ({ setFilters }) => {
                 airbnb
               </span>
             </Link>
+
             {/* Search Bar */}
-            {!isOpen && isPropertyDetailsPage && (
+            {!isOpen && (isPropertyDetailsPage || isScrolled) && (
               <div className="flex items-center justify-between w-full max-w-sm mx-auto bg-white rounded-full shadow-md border border-gray-200 px-4 py-2">
-                {/* Left text items */}
                 <div
                   onClick={() => setIsOpen(!isOpen)}
                   className="flex items-center flex-1 justify-between text-sm font-medium text-gray-700"
@@ -67,7 +80,6 @@ const Header = ({ setFilters }) => {
                   </span>
                 </div>
 
-                {/* Search button */}
                 <button className="ml-2 p-2 rounded-full bg-[#FF385C] hover:bg-[#E31C5F] transition-colors">
                   <Search className="w-4 h-4 text-white" />
                 </button>
@@ -88,10 +100,14 @@ const Header = ({ setFilters }) => {
             </div>
           </div>
         </div>
+
+        {/* ✅ Hide SearchBar when scrolled down on home page */}
         <div
-          className={` ${
-            !isPropertyDetailsPage || isOpen ? "block" : "hidden"
-          } `}
+          className={`${
+            (!isPropertyDetailsPage && !isScrolled) || isOpen
+              ? "block"
+              : "hidden"
+          }`}
         >
           <SearchBar
             activeField={activeField}
