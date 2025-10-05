@@ -4,7 +4,7 @@ import { Search, Menu, User, Globe } from "lucide-react";
 import SearchBar from "./SearchBar";
 import MobileSearchBar from "./MobileSearch";
 
-const Header = ({ setFilters }) => {
+const Header = ({ setFilters, setData }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeField, setActiveField] = useState(null);
   const [showGuestDropdown, setShowGuestDropdown] = useState(false);
@@ -48,7 +48,7 @@ const Header = ({ setFilters }) => {
         !isPropertyDetailsPage ? "sticky top-0 z-50 bg-[#fcfcfcf9]  " : ""
       }`}
     >
-      {!isPropertyDetailsPage && <MobileSearchBar />}
+      {!isPropertyDetailsPage && <MobileSearchBar setData={setData} />}
       <div
         className={`hidden md:block py-1 ${
           isPropertyDetailsPage ? "max-w-6xl mx-auto" : ""
@@ -95,7 +95,7 @@ const Header = ({ setFilters }) => {
                   </span>
                 </div>
 
-                <button className="ml-2 p-2 rounded-full bg-[#FF385C] hover:bg-[#E31C5F] transition-colors">
+                <button className="ml-2 p-2 rounded-full bg-[#FF385C] hover:bg-[#E31C5F] transition-colors cursor-pointer">
                   <Search className="w-4 h-4 text-white" />
                 </button>
               </div>
@@ -130,7 +130,6 @@ const Header = ({ setFilters }) => {
             showGuestDropdown={showGuestDropdown}
             setShowGuestDropdown={setShowGuestDropdown}
             onSearch={(data) => setFilters(data)}
-            setIsOpen={setIsOpen}
           />
         </div>
       </div>

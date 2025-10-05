@@ -7,17 +7,17 @@ import { fetchProperties } from "../api/filterProperties";
 import PropertiesListWithMap from "../components/PropertyListWithMap";
 import PropertyCardSkeleton from "../components/PropertyCardSkeleton";
 
-const HomePage = ({ filters }) => {
+const HomePage = ({ filters, data, setData }) => {
   const [startIndices, setStartIndices] = useState({});
   const [visibleCount, setVisibleCount] = useState(1);
 
-  const { data, isLoading: loading } = useQuery({
+  const { data: datas, isLoading: loading } = useQuery({
     queryKey: ["properties", filters],
     queryFn: () => fetchProperties(filters),
     keepPreviousData: true,
   });
 
-  //console.log(data, "filter", filters);
+  //console.log(data);
 
   const {
     data: groupedData,
@@ -41,6 +41,12 @@ const HomePage = ({ filters }) => {
     window.addEventListener("resize", updateVisibleCount);
     return () => window.removeEventListener("resize", updateVisibleCount);
   }, []);
+
+  useEffect(() => {
+    if (datas) {
+      setData(datas);
+    }
+  }, [datas, setData]);
 
   // Carousel handlers per group
   const handlePrev = (subtitle) => {

@@ -6,16 +6,16 @@ const PropertiesListWithMap = ({ properties, isLoading }) => {
   if (!properties?.length) return <div className="p-10">No results found.</div>;
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 min-h-screen mt-4 overflow-y-clip">
+    <div className="grid rel grid-cols-1 lg:grid-cols-2 gap-4 min-h-screen mt-4 relative">
       {/* Left: Property List */}
-      <div className="col-span-2 lg:col-span-1 overflow-y-hidden p-4 space-y-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 ">
+      <div className="order-2 md:order-1 space-y-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 shadow-md rounded-t-4xl absolute top-1/2 z-40 bg-white p-6">
         {properties.map((property) => (
           <PropertyCard2 key={property._id} property={property} />
         ))}
       </div>
 
       {/* Right: Map */}
-      <div className="sticky top-10 hidden lg:block">
+      <div className=" order-1 md:order-2 sticky top-3 lg:top-10 md:hidden lg:block">
         <MapContainer
           center={[
             properties[0].coordinates.lat,
@@ -23,7 +23,7 @@ const PropertiesListWithMap = ({ properties, isLoading }) => {
           ]}
           zoom={12}
           scrollWheelZoom={false}
-          className="h-full w-full rounded-lg"
+          className="w-full h-[400px] lg:h-full rounded-lg"
         >
           <TileLayer
             attribution='&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a>'

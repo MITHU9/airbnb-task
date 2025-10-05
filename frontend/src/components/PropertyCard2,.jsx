@@ -5,7 +5,7 @@ const PropertyCard2 = ({ property }) => {
   return (
     <Link
       to={`/property/${property._id}`}
-      className="rounded-xl overflow-hidden shadow-md hover:shadow-xl transition cursor-pointer h-88 w-full"
+      className="rounded-xl overflow-hidden hover:shadow-sm transition cursor-pointer h-88 w-full"
     >
       <div className="relative ">
         <img

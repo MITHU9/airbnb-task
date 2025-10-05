@@ -4,6 +4,8 @@ import { API_URL } from "../constant/constant";
 export const fetchProperties = async (filters) => {
   const params = new URLSearchParams();
 
+  //console.log(filters);
+
   if (filters.where) params.append("where", filters.where);
   if (filters.checkIn) params.append("checkIn", filters.checkIn.toISOString());
   if (filters.checkOut)

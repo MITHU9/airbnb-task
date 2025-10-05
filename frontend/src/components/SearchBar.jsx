@@ -393,7 +393,7 @@ const SearchBar = ({
             {/* Search Button */}
             <button
               onClick={() => onSearch(searchData)}
-              className="bg-[#e61171] text-white px-4 py-3 rounded-full hover:bg-[#E04F54] transition-colors font-bold ml-4 flex items-center gap-2"
+              className="bg-[#e61171] text-white px-4 py-3 rounded-full hover:bg-[#f61275] transition-colors font-bold ml-4 flex items-center gap-2 cursor-pointer"
             >
               <Search size={18} strokeWidth={3} />
               {activeField && <span>Search</span>}

@@ -2,8 +2,9 @@ import { useState } from "react";
 import { Search } from "lucide-react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { fetchProperties } from "../api/filterProperties";
 
-const MobileSearchBar = () => {
+const MobileSearchBar = ({ setData }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const [activeSection, setActiveSection] = useState("where");
   const [location, setLocation] = useState(null);
@@ -28,7 +29,32 @@ const MobileSearchBar = () => {
     guestCounts.infants +
     guestCounts.pets;
 
+  const filters = {
+    where: location,
+    checkIn: dates.checkIn,
+    checkOut: dates.checkOut,
+    guests: totalGuests,
+  };
+
+  //console.log(filters);
+
+  const handleSearch = () => {
+    fetchProperties(filters).then((data) => {
+      setData(data);
+      setIsExpanded(false);
+    });
+  };
+
   const isReadyToSearch = dates.checkIn && totalGuests > 0;
+  const isFiltersEmpty = Object.values(filters).every(
+    (value) =>
+      value === null ||
+      value === undefined ||
+      value === "" ||
+      (typeof value === "number" && value === 0)
+  );
+
+  //console.log(isFiltersEmpty);
 
   return (
     <div className="md:hidden w-full p-4">
@@ -38,8 +64,30 @@ const MobileSearchBar = () => {
           className="flex items-center justify-between bg-white border border-gray-300 rounded-full px-4 py-3 shadow-md cursor-pointer"
           onClick={() => setIsExpanded(true)}
         >
-          <span className="text-gray-500 text-sm">Start your search</span>
-          <Search size={18} className="text-[#e61171]" strokeWidth={3} />
+          {!isFiltersEmpty ? (
+            <div className="flex flex-col items-center flex-1">
+              <h2 className="font-bold">{filters.where}</h2>
+              <p className="text-sm text-gray-500 font-semibold">
+                {filters.checkIn?.toLocaleDateString("en-US", {
+                  day: "numeric",
+                  month: "short",
+                  year: "numeric",
+                })}{" "}
+                -{" "}
+                {filters.checkOut?.toLocaleDateString("en-US", {
+                  day: "numeric",
+                  month: "short",
+                  year: "numeric",
+                })}{" "}
+                | {filters.guests} guests
+              </p>
+            </div>
+          ) : (
+            <span className="text-gray-500 text-sm">Start your search</span>
+          )}
+          {isFiltersEmpty && (
+            <Search size={18} className="text-[#e61171]" strokeWidth={3} />
+          )}
         </div>
       ) : (
         // Expanded
@@ -64,7 +112,7 @@ const MobileSearchBar = () => {
             {/* WHERE */}
             <div
               className={`p-4 rounded-xl shadow-md cursor-pointer ${
-                activeSection === "where" ? "ring-2 ring-black" : ""
+                activeSection === "where" ? "ring-1 ring-black" : ""
               }`}
               onClick={() => setActiveSection("where")}
             >
@@ -79,18 +127,24 @@ const MobileSearchBar = () => {
                 <div className="mt-4 space-y-2">
                   {[
                     {
-                      city: "Kolkata, India",
-                      note: "Guests interested in Guwahati also looked here",
+                      city: "London, UK",
+                      note: "The city of lights",
+                      icon: "🏙️",
                     },
-                    { city: "Darjeeling, India", note: "For nature-lovers" },
                     {
-                      city: "New Delhi, India",
-                      note: "For sights like India Gate",
+                      city: "East Khasi Hills, India",
+                      note: "For its scenic beauty",
+                      icon: "⛰️",
                     },
-                    { city: "Puri, India", note: "Known for its beaches" },
                     {
-                      city: "Jaipur, India",
-                      note: "For its stunning architecture",
+                      city: "Chandmari, Guwahati, India",
+                      note: "A popular locality",
+                      icon: "🕌",
+                    },
+                    {
+                      city: "Hatigaon, Guwahati, India",
+                      note: "A serene neighborhood",
+                      icon: "🏖️",
                     },
                   ].map((item, idx) => (
                     <div
@@ -115,7 +169,7 @@ const MobileSearchBar = () => {
             {/* WHEN */}
             <div
               className={`p-4 rounded-xl shadow-md cursor-pointer ${
-                activeSection === "when" ? "ring-2 ring-black" : ""
+                activeSection === "when" ? "ring-1 ring-black" : ""
               }`}
               onClick={() => setActiveSection("when")}
             >
@@ -140,12 +194,13 @@ const MobileSearchBar = () => {
                     </button>
                   </div>
                   <DatePicker
-                    selected={dates.checkIn}
-                    onChange={(date) => {
-                      setDates({ ...dates, checkIn: date });
-                    }}
+                    selectsRange
+                    startDate={dates.checkIn}
+                    endDate={dates.checkOut}
+                    onChange={([start, end]) =>
+                      setDates({ checkIn: start, checkOut: end })
+                    }
                     inline
-                    monthsShown={1}
                   />
                   <div className="flex justify-around mt-2 text-xs">
                     <button className="px-3 py-1 border rounded-full bg-black text-white">
@@ -168,7 +223,7 @@ const MobileSearchBar = () => {
             {/* WHO */}
             <div
               className={`p-4 rounded-xl shadow-md cursor-pointer ${
-                activeSection === "who" ? "ring-2 ring-black" : ""
+                activeSection === "who" ? "ring-1 ring-black" : ""
               }`}
               onClick={() => setActiveSection("who")}
             >
@@ -250,7 +305,10 @@ const MobileSearchBar = () => {
             </button>
 
             {isReadyToSearch ? (
-              <button className="bg-[#e61171] text-white px-6 py-3 rounded-full font-bold flex items-center gap-2">
+              <button
+                onClick={handleSearch}
+                className="bg-[#e61171] text-white px-6 py-3 rounded-full font-bold flex items-center gap-2"
+              >
                 <Search size={18} strokeWidth={3} />
                 Search
               </button>
