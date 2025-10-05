@@ -30,7 +30,20 @@ const Header = ({ setFilters }) => {
   return (
     <header
       tabIndex={-1}
-      onBlur={() => setIsOpen(false)}
+      onBlur={() => {
+        setTimeout(() => {
+          const active = document.activeElement;
+
+          const isInsideSearch =
+            active?.closest(".searchbar-container") ||
+            active?.closest(".guest-dropdown") ||
+            active?.closest(".react-datepicker");
+
+          if (!isInsideSearch) {
+            setIsOpen(false);
+          }
+        }, 100);
+      }}
       className={`border-b border-gray-200 ${
         !isPropertyDetailsPage ? "sticky top-0 z-50 bg-[#fcfcfcf9]  " : ""
       }`}
@@ -117,6 +130,7 @@ const Header = ({ setFilters }) => {
             showGuestDropdown={showGuestDropdown}
             setShowGuestDropdown={setShowGuestDropdown}
             onSearch={(data) => setFilters(data)}
+            setIsOpen={setIsOpen}
           />
         </div>
       </div>

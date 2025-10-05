@@ -83,7 +83,7 @@ const SearchBar = ({
           ref={searchBarRef}
           className={`${
             activeField === null ? "bg-white" : "bg-gray-100"
-          } rounded-full shadow-lg border border-gray-200 flex flex-col md:flex-row relative`}
+          } rounded-full shadow-lg border border-gray-200 flex flex-col md:flex-row relative searchbar-container`}
         >
           {/* Where */}
           <div
@@ -334,7 +334,7 @@ const SearchBar = ({
             {showGuestDropdown && (
               <div
                 ref={guestDropdownRef}
-                className="absolute top-full right-0 mt-2 bg-white rounded-2xl shadow-2xl border border-gray-200 p-6 w-96 z-50"
+                className="absolute guest-dropdown top-full right-0 mt-2 bg-white rounded-2xl shadow-2xl border border-gray-200 p-6 w-96 z-50"
               >
                 <div className="space-y-6">
                   {["adults", "children", "infants", "pets"].map((type) => (

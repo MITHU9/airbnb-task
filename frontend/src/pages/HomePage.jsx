@@ -67,7 +67,7 @@ const HomePage = ({ filters }) => {
           {[1, 2, 3].map((groupIdx) => (
             <div key={groupIdx}>
               <div className="mb-4 flex items-center justify-between">
-                <div className="h-6 bg-gray-200 rounded w-1/3 animate-pulse"></div>
+                <div className="h-6 bg-gray-200 rounded w-1/4 animate-pulse"></div>
                 <div className="hidden md:flex gap-2">
                   <div className="w-8 h-8 bg-gray-200 rounded-full animate-pulse"></div>
                   <div className="w-8 h-8 bg-gray-200 rounded-full animate-pulse"></div>

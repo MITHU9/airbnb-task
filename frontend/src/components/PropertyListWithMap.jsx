@@ -15,7 +15,7 @@ const PropertiesListWithMap = ({ properties, isLoading }) => {
       </div>
 
       {/* Right: Map */}
-      <div className="relative hidden lg:block">
+      <div className="sticky top-10 hidden lg:block">
         <MapContainer
           center={[
             properties[0].coordinates.lat,
