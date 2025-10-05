@@ -4,7 +4,7 @@ import { Search, Menu, User, Globe } from "lucide-react";
 import SearchBar from "./SearchBar";
 import MobileSearchBar from "./MobileSearch";
 
-const Header = ({ setFilters, setData }) => {
+const Header = ({ setFilters, filters, setData }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeField, setActiveField] = useState(null);
   const [showGuestDropdown, setShowGuestDropdown] = useState(false);
@@ -26,6 +26,8 @@ const Header = ({ setFilters, setData }) => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  console.log(filters);
 
   return (
     <header
@@ -74,14 +76,22 @@ const Header = ({ setFilters, setData }) => {
                     onClick={() => setActiveField("where")}
                     className="px-2 cursor-pointer hover:text-black"
                   >
-                    Anywhere
+                    {filters.where || "Anywhere"}
                   </span>
                   <span className="text-gray-300">|</span>
                   <span
                     onClick={() => setActiveField("checkIn")}
                     className="px-2 cursor-pointer hover:text-black"
                   >
-                    Any week
+                    {filters.checkIn && filters.checkOut
+                      ? `${filters.checkIn.toLocaleDateString("en-US", {
+                          day: "numeric",
+                          month: "short",
+                        })} - ${filters.checkOut.toLocaleDateString("en-US", {
+                          day: "numeric",
+                          month: "short",
+                        })}`
+                      : "Any week"}
                   </span>
                   <span className="text-gray-300">|</span>
                   <span
@@ -91,7 +101,11 @@ const Header = ({ setFilters, setData }) => {
                     }}
                     className="px-2 text-gray-500 cursor-pointer hover:text-black"
                   >
-                    Add guests
+                    {filters.guests
+                      ? `${filters.guests} guest${
+                          filters.guests > 1 ? "s" : ""
+                        }`
+                      : "Add guests"}
                   </span>
                 </div>
 

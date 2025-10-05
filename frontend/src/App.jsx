@@ -12,7 +12,7 @@ function App() {
   return (
     <Router>
       <div className="min-h-screen bg-white">
-        <Header setFilters={setFilters} setData={setData} />
+        <Header setFilters={setFilters} filters={filters} setData={setData} />
         <Routes>
           <Route
             path="/"
