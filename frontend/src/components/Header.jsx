@@ -31,7 +31,9 @@ const Header = ({ setFilters }) => {
     <header
       tabIndex={-1}
       onBlur={() => setIsOpen(false)}
-      className="sticky top-0 z-50 bg-[#fcfcfcf9] border-b border-gray-200 "
+      className={`border-b border-gray-200 ${
+        !isPropertyDetailsPage ? "sticky top-0 z-50 bg-[#fcfcfcf9]  " : ""
+      }`}
     >
       {!isPropertyDetailsPage && <MobileSearchBar />}
       <div

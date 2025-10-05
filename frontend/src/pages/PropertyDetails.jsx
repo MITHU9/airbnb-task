@@ -486,7 +486,7 @@ const PropertyDetails = () => {
 
         {/* Right Column - Booking */}
         <div className="hidden md:block lg:col-span-1">
-          <div className="sticky top-40">
+          <div className="sticky top-32">
             <div className="border border-gray-200 rounded-xl p-2 lg:p-6 shadow-lg">
               <div className="flex items-center justify-between mb-6">
                 <div>
