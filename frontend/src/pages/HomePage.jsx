@@ -5,6 +5,7 @@ import { fetchGroupedProperties } from "../api/properties";
 import { useQuery } from "@tanstack/react-query";
 import { fetchProperties } from "../api/filterProperties";
 import PropertiesListWithMap from "../components/PropertyListWithMap";
+import PropertyCardSkeleton from "../components/PropertyCardSkeleton";
 
 const HomePage = ({ filters }) => {
   const [startIndices, setStartIndices] = useState({});
@@ -56,9 +57,44 @@ const HomePage = ({ filters }) => {
     }));
   };
 
-  if (isLoading) return <div className="p-8 text-center">Loading...</div>;
   if (isError)
     return <div className="p-8 text-center">Error loading properties</div>;
+
+  if (isLoading) {
+    return (
+      <main className="px-4 sm:px-6 lg:px-8 py-10">
+        <div className="space-y-12">
+          {[1, 2, 3].map((groupIdx) => (
+            <div key={groupIdx}>
+              <div className="mb-4 flex items-center justify-between">
+                <div className="h-6 bg-gray-200 rounded w-1/3 animate-pulse"></div>
+                <div className="hidden md:flex gap-2">
+                  <div className="w-8 h-8 bg-gray-200 rounded-full animate-pulse"></div>
+                  <div className="w-8 h-8 bg-gray-200 rounded-full animate-pulse"></div>
+                </div>
+              </div>
+
+              {/* Skeleton Cards Grid */}
+              <div className="hidden md:grid md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-7 gap-6">
+                {Array.from({ length: 7 }).map((_, i) => (
+                  <PropertyCardSkeleton key={i} />
+                ))}
+              </div>
+
+              {/* Mobile horizontal scroll skeleton */}
+              <div className="flex gap-4 overflow-x-auto scrollbar-hide md:hidden mb-4">
+                {Array.from({ length: 4 }).map((_, i) => (
+                  <div key={i} className="flex-shrink-0 w-[44%]">
+                    <PropertyCardSkeleton />
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </main>
+    );
+  }
 
   return (
     <div>
@@ -108,7 +144,7 @@ const HomePage = ({ filters }) => {
                 {/* Mobile horizontal scroll */}
                 <div className="flex gap-4 overflow-x-auto scrollbar-hide md:hidden mb-4">
                   {group.properties.map((property) => (
-                    <div key={property.id} className="flex-shrink-0 w-[40%]">
+                    <div key={property.id} className="flex-shrink-0 w-[44%]">
                       <PropertyCard property={property} isLoading={loading} />
                     </div>
                   ))}

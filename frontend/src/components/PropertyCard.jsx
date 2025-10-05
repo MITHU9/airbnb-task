@@ -53,7 +53,7 @@ const PropertyCard = ({ property }) => {
             {property.location}
           </p>
 
-          <div className="pt-1 text-[4px] flex items-center">
+          <div className="pt-1 text-sm flex items-center">
             <div>
               <span className="md:font-semibold ">${property.price}</span>
               <span className="text-gray-600 "> for</span>
@@ -63,7 +63,7 @@ const PropertyCard = ({ property }) => {
             </div>
             <div className="flex items-center space-x-1 ml-2">
               <Star size={10} className="fill-current" />
-              <span className="text-[2px] md:text-sm">{property.rating}</span>
+              <span className="text-sm">{property.rating}</span>
             </div>
           </div>
         </div>

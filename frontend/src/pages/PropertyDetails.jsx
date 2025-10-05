@@ -205,12 +205,12 @@ const PropertyDetails = () => {
 
   return (
     <div className="max-w-6xl mx-auto sm:px-6 lg:px-8 md:py-8">
-      <div className="fixed bottom-0 right-0 left-0 bg-white flex md:hidden justify-between items-center p-4 border border-gray-300 z-40">
+      <div className="fixed bottom-0 right-0 left-0 bg-white flex md:hidden justify-between items-center p-2 border border-gray-300 z-40">
         <div>
           {totalPrice > 0 && <p className="text-xl font-bold">${totalPrice}</p>}
           <h3 className="font-semibold">Add dates for prices</h3>
           <p className="flex items-center space-x-1">
-            <Star size={10} className="fill-current inline " />
+            <Star size={10} className="fill-current inline mr-0.5" />
             {property.rating}
           </p>
         </div>
@@ -340,20 +340,24 @@ const PropertyDetails = () => {
         <div className="md:col-span-2">
           {/* Property Info */}
           <div className="border-b border-gray-200 pb-8 mb-8">
-            <h2 className="text-xl font-semibold mb-4">
-              {property.type} hosted by {property.host.name}
+            <h1 className="md:hidden text-center md:text-left text-2xl font-bold text-gray-900 mb-4">
+              {property.title}
+            </h1>
+            <h2 className="text-center md:text-left text-sm md:text-xl md:font-semibold md:mb-4">
+              {property.location}
             </h2>
-            <div className="flex items-center space-x-4 text-gray-600 mb-6">
-              <div className="flex items-center">
-                <Users size={16} className="mr-1" />
+
+            <div className="flex items-center justify-center text-gray-600 mb-6 md:justify-start">
+              <div className="flex items-center after:content-['•'] after:mx-2 last:after:content-none">
+                <Users size={16} className="mr-1 hidden md:block" />
                 <span>{property.guests} guests</span>
               </div>
-              <div className="flex items-center">
-                <Bed size={16} className="mr-1" />
+              <div className="flex items-center after:content-['•'] after:mx-2 last:after:content-none">
+                <Bed size={16} className="mr-1 hidden md:block" />
                 <span>{property.bedrooms} bedrooms</span>
               </div>
               <div className="flex items-center">
-                <Bath size={16} className="mr-1" />
+                <Bath size={16} className="mr-1 hidden md:block" />
                 <span>{property.bathrooms} bathrooms</span>
               </div>
             </div>
@@ -883,7 +887,7 @@ const PropertyDetails = () => {
         {property.reviews.length > 6 && (
           <button
             onClick={() => setShowAllReviews(!showAllReviews)}
-            className="px-6 py-3 border border-gray-900 rounded-lg font-medium hover:bg-gray-50"
+            className="px-6 hidden md:block py-3 border border-gray-900 rounded-lg font-medium hover:bg-gray-50"
           >
             {showAllReviews
               ? "Show less"
