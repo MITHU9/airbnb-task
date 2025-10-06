@@ -207,18 +207,41 @@ const PropertyDetails = () => {
     <div className="max-w-6xl mx-auto sm:px-6 lg:px-8 md:py-8">
       <div className="fixed bottom-0 right-0 left-0 bg-white flex md:hidden justify-between items-center p-2 border border-gray-300 z-40">
         <div>
-          {totalPrice > 0 && <p className="text-xl font-bold">${totalPrice}</p>}
-          <h3 className="font-semibold">Add dates for prices</h3>
+          {totalPrice > 0 ? (
+            <p className="text-xl font-bold">${totalPrice}</p>
+          ) : (
+            <h3 className="font-semibold">Add dates for prices</h3>
+          )}
+
           <p className="flex items-center space-x-1">
-            <Star size={10} className="fill-current inline mr-0.5" />
-            {property.rating}
+            {!totalPrice > 0 && (
+              <Star size={10} className="fill-current inline mr-0.5" />
+            )}
+            {totalPrice > 0 ? (
+              <span className="text-sm text-gray-600">
+                Monthly:{" "}
+                {checkIn.toLocaleDateString("en-US", {
+                  day: "numeric",
+                  month: "short",
+                })}{" "}
+                -{" "}
+                {checkOut.toLocaleDateString("en-US", {
+                  day: "numeric",
+                  month: "short",
+                })}
+              </span>
+            ) : (
+              <span>{property.rating}</span>
+            )}
           </p>
         </div>
         <div
           onClick={() => setCalendarOpen(true)}
-          className="mt-4 px-6 py-5 bg-gradient-to-r from-[#E61E4D] to-[#BD1E59] text-white rounded-full text-center font-semibold cursor-pointer hover:from-[#D70466] hover:to-[#BD1E59] transition-all"
+          className={`mt-4 ${
+            totalPrice > 0 ? "px-12" : "px-6"
+          } py-4 bg-gradient-to-r from-[#E61E4D] to-[#BD1E59] text-white rounded-full text-center font-semibold cursor-pointer hover:from-[#D70466] hover:to-[#BD1E59] transition-all`}
         >
-          Check availability
+          {totalPrice > 0 ? "Reserve" : "Check availability"}
         </div>
       </div>
       {/* Header */}
@@ -515,9 +538,9 @@ const PropertyDetails = () => {
               <div className="space-y-0 mb-6 border border-gray-300 rounded-lg">
                 <div className="relative">
                   {/* Inputs */}
-                  <div className="grid grid-cols-2 gap-0 border rounded-lg">
+                  <div className="grid grid-cols-2 gap-0 border rounded-t-lg">
                     {/* Check-In */}
-                    <div className="p-3 border-r border-gray-300">
+                    <div className="p-3 border-r border-gray-600">
                       <label className="block text-xs font-semibold text-gray-900 mb-1">
                         CHECK-IN
                       </label>
@@ -656,7 +679,7 @@ const PropertyDetails = () => {
                 <div className="relative w-full">
                   <div
                     onClick={() => setIsOpen(!isOpen)}
-                    className="border-t border-gray-300 p-3 cursor-pointer"
+                    className="border border-gray-600 border-t-0  p-3 cursor-pointer rounded-b-lg"
                   >
                     <label className="block text-xs font-semibold text-gray-900 mb-1">
                       GUESTS
@@ -897,11 +920,11 @@ const PropertyDetails = () => {
       </div>
 
       {/* Map Section */}
-      <div className="mt-12 border-t border-gray-200 pt-12">
+      <div className="mt-12 p-2 border-t border-gray-200 pt-12">
         <h3 className="text-2xl font-semibold mb-6">Where you'll be</h3>
 
         {/* Map Wrapper */}
-        <div className="md:w-full h-96 mb-6 overflow-hidden rounded-lg px-2">
+        <div className="md:w-full h-96 mb-6 overflow-hidden rounded-lg">
           <MapContainer
             center={property.coordinates || [26.1445, 91.7362]}
             zoom={13}
@@ -969,7 +992,7 @@ const PropertyDetails = () => {
       </div>
 
       {/* Things to know */}
-      <div className="p-2 mt-12 border-t border-gray-200 pt-12">
+      <div className="p-3 mt-12 border-t border-gray-200 pt-12">
         <h3 className="text-2xl font-semibold mb-8">Things to know</h3>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>

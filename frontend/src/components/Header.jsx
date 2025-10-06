@@ -27,7 +27,7 @@ const Header = ({ setFilters, filters, setData }) => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  console.log(filters);
+  //console.log(filters);
 
   return (
     <header
